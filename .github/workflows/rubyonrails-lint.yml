@@ -24,6 +24,11 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 3.0.x
+          
+      - name: Install bundler
+        run: |
+          gem install bundler:2.2.22 --no-doc
+          
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
