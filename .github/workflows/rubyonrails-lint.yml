@@ -43,6 +43,5 @@ jobs:
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: |
           sudo apt-get -yqq install libpq-dev
-          gem install bundler
           bundle exec rails db:setup
           bundle exec rails test
