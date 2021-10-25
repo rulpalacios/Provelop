@@ -28,12 +28,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14.x
-          
-      - name: Install node packages
-        run: |
-          bundle exec rake yarn:install
-          yarn install
-          bundle exec rake webpacker:compile
         
       - name: Build and run tests
         env:
