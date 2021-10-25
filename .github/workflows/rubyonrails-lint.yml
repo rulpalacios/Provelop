@@ -31,10 +31,6 @@ jobs:
         with:
           ruby-version: 3.0.x
           
-      - name: Install bundler
-        run: |
-          sudo gem install bundler
-          
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -42,6 +38,7 @@ jobs:
           
       - name: Bundle install
         run: |
+          gem install bundler
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
           
