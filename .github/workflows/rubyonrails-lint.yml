@@ -27,8 +27,7 @@ jobs:
           
       - name: Install bundler
         run: |
-          apt-get install ruby ruby-dev
-          gem install bundler
+          sudo gem install bundler
           
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
