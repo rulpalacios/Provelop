@@ -8,3 +8,4 @@ updates:
   open-pull-requests-limit: 3
   ignore:
     - dependency-name: "webpacker"
+    
