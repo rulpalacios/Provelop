@@ -1,0 +1,40 @@
+name: Linter
+on: [pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Increase the amount of inotify watchers
+      run: |
+        sudo sh -c "echo fs.inotify.max_user_watches=524288 >> /etc/sysctl.conf"
+        sudo sysctl -p
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.5
+    - name: Install bundler
+      run: |
+        gem install bundler:2.1.4 --no-doc
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+    - uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems--${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems--
+    - name: Bundle install
+      run: |
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
+    - name: Install node packages
+      run: |
+        bundle exec rake yarn:install
+        yarn install --checkfiles
+    - name: Run ruby linter
+      run: bundle exec rubocop --parallel
+    - name: Run js linter
+      run: yarn lint
