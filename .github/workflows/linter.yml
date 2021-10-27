@@ -12,7 +12,7 @@ jobs:
     - name: Set up Ruby
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.5
+        ruby-version: 3.0
     - name: Install bundler
       run: |
         gem install bundler:2.1.4 --no-doc
@@ -36,5 +36,3 @@ jobs:
         yarn install --checkfiles
     - name: Run ruby linter
       run: bundle exec rubocop --parallel
-    - name: Run js linter
-      run: yarn lint
