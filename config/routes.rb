@@ -5,5 +5,13 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  scope constraints: ->(r) { r.env["warden"].user.nil? } do
+    get :signup, to: "users#new", as: :signup
+    get :login, to: "sessions#new", as: :login
+    resources :sessions, only: :create
+  end
+  delete :sign_out, to: "sessions#destroy", as: :sign_out
+
   resources :events
+  resources :users
 end

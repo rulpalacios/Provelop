@@ -1,0 +1,92 @@
+<div class="min-h-screen bg-white flex">
+    <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+    <div class="mx-auto w-full max-w-sm lg:w-96">
+        <div>
+        <%= image_pack_tag('media/images/branding/logo_provelop.png', class: 'h-12 w-auto') %>
+        <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
+            Regístrate a Provelop
+        </h2>
+        <p class="mt-2 text-sm text-gray-600">
+            O
+            <%= link_to('Ingresa con tu cuenta', login_path, class: 'font-medium text-blue-800 hover:text-blue-700')%>
+        </p>
+        </div>
+
+        <div class="mt-8">
+        <div>
+            <div>
+            <p class="text-sm font-medium text-gray-700">
+                Continua con
+            </p>
+
+            <div class="mt-1 grid grid-cols-2 gap-3">
+                <div>
+                <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <span class="sr-only">Sign in with Facebook</span>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                </div>
+
+                <div>
+                <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <span class="sr-only">Sign in with Google</span>
+                    
+                    <svg width="20" height="20"><g fill-rule="nonzero" fill="none"><circle fill="#6B7280" cx="9.639" cy="9.81" r="9.639"/>
+                        <path d="M4.221 9.817c-.104-2.69 2.3-5.176 5.049-5.208 1.4-.117 2.763.416 3.824 1.285-.435.468-.878.931-1.35 1.365-.934-.556-2.057-.979-3.148-.603-1.759.49-2.824 2.526-2.173 4.212.539 1.76 2.725 2.727 4.438 1.988.887-.312 1.472-1.114 1.73-1.975-1.018-.02-2.035-.008-3.051-.035-.003-.593-.006-1.184-.003-1.776 1.696-.003 3.394-.008 5.092.007.104 1.452-.114 3.007-1.078 4.172-1.32 1.664-3.757 2.152-5.74 1.5-2.105-.678-3.636-2.755-3.59-4.932z" fill="#FFF"/></g>
+                    </svg>
+                </a>
+                </div>
+            </div>
+            </div>
+
+            <div class="mt-6 relative">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                <div class="w-full border-t border-gray-300"></div>
+            </div>
+            <div class="relative flex justify-center text-sm">
+                <span class="px-2 bg-white text-gray-500">
+                O regístrate con tu correo
+                </span>
+            </div>
+            </div>
+        </div>
+
+        <div class="mt-6">
+        
+
+        <%= form_with(model: @user, class: 'space-y-6') do |form| %>
+          <div>
+            <%= form.label :email, class: "block text-sm font-medium text-gray-700" %>
+            <div class="mt-1">
+              <%= form.text_field :email, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+            </div>
+          </div>
+
+          <div class="space-y-1">
+            <%= form.label :password, class: "block text-sm font-medium text-gray-700" %>
+             <div class="mt-1">
+              <%= form.password_field :password, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+            </div>
+          </div>
+
+          <div class="space-y-1">
+            <%= form.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
+             <div class="mt-1">
+              <%= form.password_field :password_confirmation, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+            </div>
+          </div>
+          <div>
+            <%= form.submit 'Regístrate ahora', class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-500 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+          </div>
+        <% end %>
+
+        </div>
+        </div>
+    </div>
+    </div>
+    <div class="hidden lg:block relative w-0 flex-1">
+    <%= image_pack_tag('media/images/hero_signup_provelop.jpg', class: 'absolute inset-0 h-full w-full object-cover') %>
+    </div>
+</div>

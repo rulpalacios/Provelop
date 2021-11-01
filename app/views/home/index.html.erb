@@ -9,30 +9,25 @@
     <p class="mt-6 text-gray-400 font-regular text-xl mr-12">
       Cursos en vivo, en línea o presenciales
     </p>
-    <button
-      type="button"
-      class="
-        inline-flex
-        mt-8
-        items-center
-        px-6
-        py-3
-        border border-transparent
-        text-base
-        font-medium
-        rounded-full
-        shadow-sm
-        text-white
-        bg-red-500
-        hover:bg-red-700
-        focus:outline-none
-        focus:ring-2
-        focus:ring-offset-2
-        focus:ring-red-500
-      "
-    >
-      Empieza ahora
-    </button>
+    <%= link_to('Empieza ahora', signup_path, class: '
+      inline-flex
+      mt-8
+      items-center
+      px-6
+      py-3
+      border border-transparent
+      text-base
+      font-medium
+      rounded-full
+      shadow-sm
+      text-white
+      bg-red-500
+      hover:bg-red-700
+      focus:outline-none
+      focus:ring-2
+      focus:ring-offset-2
+      focus:ring-red-500
+    ')%>
   </div>
 
   <div class="md:px-24 lg:px-4 xl:px-6 mt-0">

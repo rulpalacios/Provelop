@@ -32,6 +32,11 @@
               <%= link_to('Inicio', root_path())%>
               <%= link_to('Descubre eventos', event_path(id: 1))%>
               <%= link_to('Provelopers')%>
+              <% if signed_in? %>
+                <%= link_to('Cerrar sesión', sign_out_path, method: :delete)%>
+              <% else %>
+                <%= link_to('Iniciar sesión', login_path)%>
+              <% end %>
             </div>
           </div>
           <div class="-mr-2 flex items-center sm:hidden">
@@ -111,7 +116,18 @@
       </div>
     </nav>
   </div>
-
+    <% if flash[:notice].present? %>
+    <div class="notification is-primary is-light">
+      <button class="delete"></button>
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
+    <% if flash[:alert].present? %>
+    <div class="notification is-warning is-light">
+      <button class="delete"></button>
+      <%= flash[:alert] %>
+    </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
