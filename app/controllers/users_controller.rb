@@ -2,6 +2,7 @@
 
 class UsersController < ApplicationController
   # skip_after_action :verify_authorized
+  layout 'auth'
 
   def new
     @user = User.new
