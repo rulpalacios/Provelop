@@ -2,9 +2,9 @@
 
 class UsersController < ApplicationController
   # skip_after_action :verify_authorized
-  
+  layout 'auth', only: :new
+
   def new
-    layout 'auth'
     @user = User.new
   end
 
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       render :new, alert: "Unable to create account"
     end
   end
-  
+
   def show
     @user = User.find(params[:id])
   end

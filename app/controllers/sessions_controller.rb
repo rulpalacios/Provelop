@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   # skip_after_action :verify_authorized
   layout 'auth'
-  
+
   def new
     flash.now.alert = warden.message if warden.message.present?
   end
