@@ -2,14 +2,14 @@
 
 class UsersController < ApplicationController
   # skip_after_action :verify_authorized
-  layout 'auth'
-
+  
   def new
+    layout 'auth'
     @user = User.new
   end
 
   def create
-    @user = User.new(user_attributes)
+    @user = User.new(user_params)
 
     if @user.save
       warden.set_user(@user)
@@ -18,8 +18,25 @@ class UsersController < ApplicationController
       render :new, alert: "Unable to create account"
     end
   end
+  
+  def show
+    @user = User.find(params[:id])
+  end
 
-  def user_attributes
-    params.require(:user).permit(:email, :password, :password_confirmation)
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: 'Profile was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :about, :country, :email, :password, :password_confirmation, :role, :specialization, :years_of_experience)
   end
 end
