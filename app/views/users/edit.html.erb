@@ -11,259 +11,171 @@
     </div>
   </div>
 </div>
-
-<div class="mt-10 mx-6 md:mx-12 sm:mt-12 ">
-  <div class="md:grid md:grid-cols-3 md:gap-6">
-    <div class="md:col-span-1">
-      <div class="px-1 sm:px-0">
-        <h3 class="text-lg font-medium leading-6 text-gray-900">Sobre mi</h3>
-        <p class="mt-1 text-sm text-gray-600">
-          Información general de tu perfil.
-        </p>
-      </div>
-    </div>
-    <div class="mt-5 md:mt-0 md:col-span-2">
-      <%= form_for @user do |form| %>
-        <div class="shadow overflow-hidden sm:rounded-md">
-          <div class="px-4 py-5 bg-white sm:p-6">
-            <div class="grid grid-cols-6 gap-6">
-
-              <div class="col-span-6 sm:col-span-6">
-                <%= form.label(:name, class: 'block text-sm  font-medium text-gray-700') %>
-                <%= form.text_field(:name, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md')%>
-              </div>
-
-              <div class="col-span-6">
-                <%= form.label(:about, class: 'block text-sm  font-medium text-gray-700') %>
-                <div class="mt-1">
-                  <%= form.text_area(:about, rows: 3, class: 'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-3')%>
-                </div>
-                <p class="mt-2 text-sm text-gray-500">
-                  Cuéntanos un poco sobre tus gustos, intereses y/o objetivos profesionales.
-                </p>
-              </div>
-
-              <div class="col-span-6">
-                <label class="block text-sm font-medium text-gray-700">
-                  Foto de perfil
-                </label>
-                <div class="mt-1 flex items-center">
-                  <span class="inline-block bg-gray-100 rounded-full overflow-hidden h-12 w-12">
-                    <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                  </span>
-                  <button type="button"
-                    class="ml-5 bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Change
-                  </button>
-                </div>
-              </div>
-
-              <div class="col-span-2">
-                <%= form.label(:country, class: 'block text-sm font-medium text-gray-700')%>
-                <%= form.select(:country, options_for_select([['México'], ['Colombia'], ['España'], ['Argentina'], ['Venezuela'], ['Chile'], ['Otro']], @user.country), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md'})%>
-              </div>
-
-              <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                <%= form.label(:specialization, class: 'block text-sm  font-medium text-gray-700') %>
-                <%= form.text_field(:specialization, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md')%>
-              </div>
-
-              <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                <%= form.label(:years_of_experience, class: 'block text-sm  font-medium text-gray-700') %>
-                <%= form.text_field(:years_of_experience, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md')%>
-              </div>
-            </div>
-          </div>
+<%= form_for @user do |form| %>
+  <div class="mt-10 mx-6 md:mx-12 sm:mt-12 ">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-1 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Sobre mi</h3>
+          <p class="mt-1 text-sm text-gray-600">
+            Información general de tu perfil.
+          </p>
         </div>
-        <div class="mt-1 sm:pt-4 flex justify-end pb-12 mx-6 sm:mx-12">
-          <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-full shadow-sm text-sm font-medium text-blue-gray-900 hover:bg-blue-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
-            Cancelar
-          </button>
-          <%= form.submit('Guardar', class: 'ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')%>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<div class=" sm:block" aria-hidden="true">
-  <div class="py-10 mx-8 md:mx-12">
-  <div class="border-t border-gray-200"></div>
-  </div>
-</div>
-
-<div class="mt-2 sm:mt-10 sm:mt-0 mx-6 md:mx-12">
-  <div class="md:grid md:grid-cols-3 md:gap-6">
-    <div class="md:col-span-1">
-      <div class="px-1 sm:px-0">
-        <h3 class="text-lg font-medium leading-6 text-gray-900">Experiencia</h3>
-        <p class="mt-1 text-sm text-gray-600">
-          Agregar información sobre tu experiencia profesional
-        </p>
       </div>
-    </div>
-
-    <div class="mt-5 md:mt-0 md:col-span-2">
-
-      <div class="flex justify-end">
-        <button type="button"
-          class="inline-flex items-center px-3 py-2 border border-transparent tracking-wide  text-sm leading-4 font-semibold rounded-full text-blue-800  hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
-          <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          Agregar experiencia
-        </button>
-      </div>
-
-      <div class="mt-5 md:mt-6 md:col-span-2">
-        <form action="#" method="POST">
+      <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="shadow overflow-hidden sm:rounded-md">
             <div class="px-4 py-5 bg-white sm:p-6">
               <div class="grid grid-cols-6 gap-6">
 
                 <div class="col-span-6 sm:col-span-6">
-                  <label for="name" class="block text-sm  font-medium text-gray-700">Nombre del puesto</label>
-                  <input type="text" name="name" id="name" autocomplete="name"
-                    class="mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md">
+                  <%= form.label(:name, class: 'block text-sm  font-medium text-gray-700') %>
+                  <%= form.text_field(:name, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md')%>
                 </div>
 
-                <div class="col-span-6 sm:col-span-4">
-                  <label for="name" class="block text-sm  font-medium text-gray-700">Nombre de la empresa</label>
-                  <input type="text" name="name" id="name" autocomplete="name"
-                    class="mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md">
-                </div>
-
-                <div class="col-span-6 sm:col-span-2">
-                  <label for="name" class="block text-sm  font-medium text-gray-700">Fechas</label>
-                  <input type="text" name="name" id="name" autocomplete="name"
-                    class="mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md">
+                <div class="col-span-6">
+                  <%= form.label(:about, class: 'block text-sm  font-medium text-gray-700') %>
+                  <div class="mt-1">
+                    <%= form.text_area(:about, rows: 3, class: 'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-3')%>
+                  </div>
                   <p class="mt-2 text-sm text-gray-500">
-                    Ej. Nov-2019 a Ene-2021
+                    Cuéntanos un poco sobre tus gustos, intereses y/o objetivos profesionales.
                   </p>
                 </div>
 
                 <div class="col-span-6">
-                  <label for="about" class="block text-sm font-medium text-gray-700">
-                    Descripción
+                  <label class="block text-sm font-medium text-gray-700">
+                    Foto de perfil
                   </label>
-                  <div class="mt-1">
-                    <textarea id="about" name="about" rows="3"
-                      class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-3"
-                      placeholder=""></textarea>
+                  <div class="mt-1 flex items-center">
+                    <span class="inline-block bg-gray-100 rounded-full overflow-hidden h-12 w-12">
+                      <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                          d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                      </svg>
+                    </span>
+                    <button type="button"
+                      class="ml-5 bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      Change
+                    </button>
                   </div>
-                  <p class="mt-2 text-sm text-gray-500">
-                    Tu descripción de puesto, logros y funciones
-                  </p>
                 </div>
-                <div class="flex justify-end col-span-6">
-                  <button type="button"
-                    class="inline-flex items-center px-4 py-2 border shadow-sm text-sm font-medium rounded-full text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                    <!-- Heroicon name: solid/mail -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                    </svg>
-                    Eliminar
-                  </button>
+
+                <div class="col-span-2">
+                  <%= form.label(:country, class: 'block text-sm font-medium text-gray-700')%>
+                  <%= form.select(:country, options_for_select([['México'], ['Colombia'], ['España'], ['Argentina'], ['Venezuela'], ['Chile'], ['Otro']], @user.country), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md'})%>
+                </div>
+
+                <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                  <%= form.label(:specialization, class: 'block text-sm  font-medium text-gray-700') %>
+                  <%= form.text_field(:specialization, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md')%>
+                </div>
+
+                <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                  <%= form.label(:years_of_experience, class: 'block text-sm  font-medium text-gray-700') %>
+                  <%= form.text_field(:years_of_experience, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md')%>
                 </div>
               </div>
             </div>
           </div>
-        </form>
       </div>
     </div>
   </div>
-</div>
 
-<div class="sm:block" aria-hidden="true">
+  <div class=" sm:block" aria-hidden="true">
     <div class="py-10 mx-8 md:mx-12">
     <div class="border-t border-gray-200"></div>
     </div>
-</div>
+  </div>
 
-<div class="mt-1 sm:mt-10 sm:mt-0 mx-6 md:mx-12">
-  <div class="md:grid md:grid-cols-3 md:gap-6">
-    <div class="md:col-span-1">
-      <div class="px-1 sm:px-0">
-        <h3 class="text-lg font-medium leading-6 text-gray-900">Educación</h3>
-        <p class="mt-1 text-sm text-gray-600">
-          Agrega información sobre tu educación
-        </p>
-      </div>
-    </div>
-
-    <div class="mt-5 md:mt-0 md:col-span-2">
-
-      <div class="flex justify-end">
-        <button type="button"
-          class="inline-flex items-center px-3 py-2 border border-transparent tracking-wide  text-sm leading-4 font-semibold rounded-full text-blue-800  hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
-          <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          Agregar estudios
-        </button>
+  <div class="mt-2 sm:mt-10 sm:mt-0 mx-6 md:mx-12">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-1 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Experiencia</h3>
+          <p class="mt-1 text-sm text-gray-600">
+            Agregar información sobre tu experiencia profesional
+          </p>
+        </div>
       </div>
 
-      <div class="mt-5 md:mt-6 md:col-span-2">
-        <form action="#" method="POST">
-          <div class="shadow overflow-hidden sm:rounded-md">
-            <div class="px-4 py-5 bg-white sm:p-6">
-              <div class="grid grid-cols-6 gap-6">
+      <div class="mt-5 md:mt-0 md:col-span-2" data-controller='nested-form'>
+        <div data-nested-form-target="add_item" class="flex justify-end">
+          <%= link_to '#', data: {action: 'nested-form#add_association'} ,class: 'inline-flex items-center px-3 py-2 border border-transparent tracking-wide  text-sm leading-4 font-semibold rounded-full text-blue-800  hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700' do %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Agregar experiencia
+          <% end %>
+        </div>
 
-                <div class="col-span-6 sm:col-span-6">
-                  <label for="name" class="block text-sm  font-medium text-gray-700">Título de estudios o
-                    certificado</label>
-                  <input type="text" name="name" id="name" autocomplete="name"
-                    class="mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md">
-                </div>
+        <template data-nested-form-target='template'>
+          <%= form.fields_for :jobs, Job.new, child_index: 'TEMPLATE_RECORD' do |job|%>
+            <%= render 'job_fields', form: job %>
+          <% end %>
+        </template>
 
-                <div class="col-span-6 sm:col-span-4">
-                  <label for="name" class="block text-sm  font-medium text-gray-700">Universidad o institución</label>
-                  <input type="text" name="name" id="name" autocomplete="name"
-                    class="mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md">
-                </div>
+        <%= form.fields_for :jobs do |job|%>
+          <%= render 'job_fields', form: job %>
+        <% end %>
 
-                <div class="col-span-6 sm:col-span-2">
-                  <label for="name" class="block text-sm  font-medium text-gray-700">Fechas de estudio</label>
-                  <input type="text" name="name" id="name" autocomplete="name"
-                    class="mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md">
-                  <p class="mt-2 text-sm text-gray-500">
-                    Ej. Nov-2019 a Ene-2021
-                  </p>
-                </div>
-
-                <div class="col-span-6">
-                  <label for="about" class="block text-sm font-medium text-gray-700">
-                    Descripción
-                  </label>
-                  <div class="mt-1">
-                    <textarea id="about" name="about" rows="3"
-                      class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-3"
-                      placeholder=""></textarea>
-                  </div>
-                  <p class="mt-2 text-sm text-gray-500">
-                    Comparte información adicional sobre tus estudios
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
       </div>
     </div>
   </div>
-</div>
 
-<div class="sm:block" aria-hidden="true">
-    <div class="py-10 mx-8 md:mx-12">
+  <div class="sm:block" aria-hidden="true">
+      <div class="py-10 mx-8 md:mx-12">
       <div class="border-t border-gray-200"></div>
+      </div>
+  </div>
+
+  <div class="mt-1 sm:mt-10 sm:mt-0 mx-6 md:mx-12">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-1 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Educación</h3>
+          <p class="mt-1 text-sm text-gray-600">
+            Agrega información sobre tu educación
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-5 md:mt-0 md:col-span-2" data-controller='nested-form'>
+        <div data-nested-form-target="add_item" class="flex justify-end">
+          <%= link_to '#', data: {action: 'nested-form#add_association'} ,class: 'inline-flex items-center px-3 py-2 border border-transparent tracking-wide  text-sm leading-4 font-semibold rounded-full text-blue-800  hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700' do %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Agregar estudios
+          <% end %>
+        </div>
+
+        <template data-nested-form-target='template'>
+          <%= form.fields_for :studies, Study.new, child_index: 'TEMPLATE_RECORD' do |study|%>
+            <%= render 'study_fields', form: study %>
+          <% end %>
+        </template>
+
+        <%= form.fields_for :studies do |study|%>
+          <%= render 'study_fields', form: study %>
+        <% end %>
+      </div>
     </div>
-</div>
+  </div>
+
+  <div class="sm:block" aria-hidden="true">
+      <div class="py-10 mx-8 md:mx-12">
+        <div class="border-t border-gray-200"></div>
+      </div>
+  </div>
+
+  <div class="mt-1 sm:pt-4 flex justify-end pb-12 mx-6 sm:mx-12">
+    <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-full shadow-sm text-sm font-medium text-blue-gray-900 hover:bg-blue-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
+      Cancelar
+    </button>
+    <%= form.submit('Guardar', class: 'ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')%>
+  </div>
+<% end %>
