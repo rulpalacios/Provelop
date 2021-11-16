@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_16_011957) do
+ActiveRecord::Schema.define(version: 2021_11_16_182500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "creators", force: :cascade do |t|
+    t.string "name"
+    t.string "about"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_creators_on_user_id"
+  end
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"
@@ -50,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_11_16_011957) do
     t.integer "years_of_experience"
   end
 
+  add_foreign_key "creators", "users"
   add_foreign_key "jobs", "users"
   add_foreign_key "studies", "users"
 end

@@ -1,0 +1,76 @@
+<div class="sticky top-16">
+  <!-- Comienza header -->
+  <div class="pl-8 pr-4 md:px-14 pt-4 pb-4 bg-gray-100">
+    <div class="md:flex pt-0 md:justify-between md:items-center">
+      <a href="">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-800 hover:text-blue-600" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+<%= form_for @creator do |form| %>
+  <div class="mt-10 mx-6 md:mx-12 sm:mt-12 ">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-1 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Acerca de</h3>
+          <p class="mt-1 text-sm text-gray-600">
+            Información general de tu perfil como creador.
+          </p>
+        </div>
+      </div>
+      <div class="mt-5 md:mt-0 md:col-span-2">
+          <div class="shadow overflow-hidden sm:rounded-md">
+            <div class="px-4 py-5 bg-white sm:p-6">
+              <div class="grid grid-cols-6 gap-6">
+
+                <div class="col-span-6 sm:col-span-6">
+                  <%= form.label(:name, class: 'block text-sm  font-medium text-gray-700') %>
+                  <%= form.text_field(:name, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md')%>
+                </div>
+
+                <div class="col-span-6">
+                  <%= form.label(:about, class: 'block text-sm  font-medium text-gray-700') %>
+                  <div class="mt-1">
+                    <%= form.text_area(:about, rows: 3, class: 'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-3')%>
+                  </div>
+                  <p class="mt-2 text-sm text-gray-500">
+                    Cuéntanos un poco sobre tus organizacion
+                  </p>
+                </div>
+
+                <div class="col-span-6">
+                  <label class="block text-sm font-medium text-gray-700">
+                    Foto
+                  </label>
+                  <div class="mt-1 flex items-center">
+                    <span class="inline-block bg-gray-100 rounded-full overflow-hidden h-12 w-12">
+                      <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                          d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                      </svg>
+                    </span>
+                    <button type="button"
+                      class="ml-5 bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      Change
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mt-1 sm:pt-4 flex justify-end pb-12 mx-6 sm:mx-12">
+    <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-full shadow-sm text-sm font-medium text-blue-gray-900 hover:bg-blue-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
+      Cancelar
+    </button>
+    <%= form.submit('Guardar', class: 'ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')%>
+  </div>
+<% end %>

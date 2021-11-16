@@ -35,6 +35,7 @@
               <% if signed_in? %>
                 <%= link_to('Cerrar sesión', sign_out_path, method: :delete)%>
                 <%= link_to('Perfil', user_path(id: current_user.id))%>
+                <%= link_to('Creador', creator_path(id: current_user.creator.id))%>
               <% else %>
                 <%= link_to('Iniciar sesión', login_path)%>
               <% end %>
