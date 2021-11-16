@@ -5,14 +5,16 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
-  def show; end
+  def show
+    @event = Event.find(params[:id])
+  end
 
   def new
     @event = Event.new
   end
 
   def create
-    @event = current_user.events.new(event_params)
+    @event = current_user.creator.events.new(event_params)
 
     if @event.save
       redirect_to events_path, notice: 'Evento registrado correctamente'
@@ -24,6 +26,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:)
+    params.require(:event).permit(:name, :description, :price, :learn, :requirements, :oriented)
   end
 end

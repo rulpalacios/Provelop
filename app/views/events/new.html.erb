@@ -1,0 +1,29 @@
+<%= form_for @event do |form|%>
+  <div>
+    <%= form.label(:name) %>
+    <%= form.text_field(:name) %>
+  </div>
+  <div>
+    <%= form.label(:description) %>
+    <%= form.text_field(:description) %>
+  </div>
+  <div>
+    <%= form.label(:price) %>
+    <%= form.number_field(:price) %>
+  </div>
+  <div>
+    <%= form.label(:learn) %>
+    <%= form.text_field(:learn) %>
+  </div>
+  <div>
+    <%= form.label(:requirements) %>
+    <%= form.text_field(:requirements) %>
+  </div>
+  <div>
+    <%= form.label(:oriented) %>
+    <%= form.text_field(:oriented) %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -30,12 +30,13 @@
               <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
               
               <%= link_to('Inicio', root_path())%>
-              <%= link_to('Descubre eventos', event_path(id: 1))%>
+              <%= link_to('Descubre eventos', events_path())%>
               <%= link_to('Provelopers')%>
               <% if signed_in? %>
                 <%= link_to('Cerrar sesión', sign_out_path, method: :delete)%>
                 <%= link_to('Perfil', user_path(id: current_user.id))%>
                 <%= link_to('Creador', creator_path(id: current_user.creator.id))%>
+                <%= link_to('Crear Evento', new_event_path())%>
               <% else %>
                 <%= link_to('Iniciar sesión', login_path)%>
               <% end %>

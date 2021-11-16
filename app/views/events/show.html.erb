@@ -5,9 +5,9 @@
 <div class="sticky top-16"> 
   <div class="pl-8 pr-4 md:px-14 pt-4 pb-4 bg-white">
       <div class="md:flex pt-0 md:justify-between md:items-center">
-          <h1 class="text-gray-800 text-3xl md:text-4xl font-bold">Desarrollo ágil con metodología</h1>
+          <h1 class="text-gray-800 text-3xl md:text-4xl font-bold"><%= @event.name %></h1>
           <span class="flex justify-start md:justify-end items-center pt-3 md:pt-0">
-              <p class="text-blue-500 text-lg font-medium pr-4">$345.00</p>
+              <p class="text-blue-500 text-lg font-medium pr-4">$<%= @event.price %></p>
               <button type="button" class="inline-flex items-center px-6 py-2 border truncate border-transparent text-sm leading-4 font-medium rounded-full shadow-sm text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                   Reserva lugar
               </button>
@@ -81,11 +81,7 @@
                 Sobre el evento
               </dt>
               <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                Facebook conoce 49,994 datos de cada usuario que hacen que se pueda colocar el anuncio perfecto frente a
-                la persona correcta y generar millones y millones en ventas para los que realmente conocen la
-                herramienta. Con este curso usando casos reales, práctica, mucha interacción y respondiendo a quizzes,
-                vas a pasar de no saber absolutamente nada de Facebook Ads a ser un experto en generar ventas con la
-                herramienta.
+                <%= @event.description %>
               </dd>
             </div>
 
@@ -94,10 +90,7 @@
                 Lo que aprenderás
               </dt>
               <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                &bull; Mercadotecnia digital
-                <br>&bull; Metodologías de desarrollo
-                <br>&bull; Patrones de diseño
-                <br>&bull; Administración de proyectos
+                <%= @event.learn %>
               </dd>
             </div>
           </dl>
@@ -216,22 +209,24 @@
     <div class="text-gray-400 text-xs uppercase font-semibold tracking-wide pt-5">
       creador
     </div>
-    <a href="#" class="flex-shrink-0 group block mt-2">
-      <div class="flex items-center">
+
+    <%= link_to creator_path(@event.creator), class: 'flex-shrink-0 group block mt-2' do %>
+          <div class="flex items-center">
         <div>
           <img class="inline-block h-9 w-9 rounded-full"
-            src="/Users/alex/Documents/Alex2020/Curso_TailWind/web_tailwind/icons/tec_icon.png" alt="">
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
         </div>
         <div class="ml-3">
           <p class="text-md font-medium text-gray-700 group-hover:text-gray-900">
-            Tec de Monterrey
+            <%= @event.creator.name %>
           </p>
           <p class="text-xs font-medium text-gray-500 group-hover:text-gray-700">
             Ver perfil
           </p>
         </div>
       </div>
-    </a>
+
+    <% end %>
 
     <hr class="mt-6">
     <div class="text-gray-400 text-xs uppercase font-semibold tracking-wide pt-5">

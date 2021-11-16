@@ -18,5 +18,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Creator < ApplicationRecord
+  has_many :events
   belongs_to :user
 end
