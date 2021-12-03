@@ -33,5 +33,4 @@ class User < ApplicationRecord
   def create_associations
     create_creator
   end
-
 end

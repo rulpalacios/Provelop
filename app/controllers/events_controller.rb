@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @preferences = PaymentPreferences.call(@event)
   end
 
   def new

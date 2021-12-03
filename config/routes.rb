@@ -15,4 +15,9 @@ Rails.application.routes.draw do
   resources :events
   resources :users
   resources :creators
+
+  namespace :mercadopago do
+    resources :preferences, only: :create
+    resources :success_payments, only: :show
+  end
 end

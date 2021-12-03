@@ -8,6 +8,7 @@ ruby '3.0.2'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'jbuilder', '~> 2.11'
+gem 'mercadopago-sdk', '~> 2.0', '>= 2.0.2'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -16,6 +17,7 @@ gem 'warden', '~> 1.2', '>= 1.2.9'
 gem 'webpacker', '~> 5.0'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rubocop', require: false
