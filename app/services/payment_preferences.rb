@@ -29,7 +29,7 @@ class PaymentPreferences < ApplicationService
         }
       ],
       back_urls: {
-        success: "http://localhost:3000/mercadopago/success_payments/#{event.id}?user_id=#{current_user.id}",
+        success: "#{ENV['DOMAIN']}/mercadopago/success_payments/#{event.id}?user_id=#{current_user.id}",
         failure: 'http://localhost:3000/mercadopago/failure',
         pending: 'http://localhost:3000/mercadopago/pendings'
       },
