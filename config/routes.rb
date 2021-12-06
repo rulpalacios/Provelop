@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   resources :creators
 
   namespace :mercadopago do
-    resources :preferences, only: :create
     resources :success_payments, only: :show
+  end
+
+  namespace :proveloper do
+    resources :events, only: :index
   end
 end

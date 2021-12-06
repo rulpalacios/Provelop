@@ -1,8 +1,9 @@
 class PaymentPreferences < ApplicationService
   require 'mercadopago'
 
-  def initialize(event)
+  def initialize(event, current_user)
     @event = event
+    @current_user = current_user
   end
 
   def call
@@ -11,7 +12,7 @@ class PaymentPreferences < ApplicationService
 
   private
 
-  attr_reader :event
+  attr_reader :event, :current_user
 
   def sdk
     @sdk ||= Mercadopago::SDK.new(ENV['MERCADOPAGO_TOKEN'])
@@ -28,7 +29,7 @@ class PaymentPreferences < ApplicationService
         }
       ],
       back_urls: {
-        success: "http://localhost:3000/mercadopago/success_payments/#{event.id}",
+        success: "http://localhost:3000/mercadopago/success_payments/#{event.id}?user_id=#{current_user.id}",
         failure: 'http://localhost:3000/mercadopago/failure',
         pending: 'http://localhost:3000/mercadopago/pendings'
       },

@@ -6,10 +6,17 @@
   <div class="pl-8 pr-4 md:px-14 pt-4 pb-4 bg-white">
       <div class="md:flex pt-0 md:justify-between md:items-center">
           <h1 class="text-gray-800 text-3xl md:text-4xl font-bold"><%= @event.name %></h1>
-          <span class="flex justify-start md:justify-end items-center pt-3 md:pt-0">
-              <p class="text-blue-500 text-lg font-medium pr-4">$<%= @event.price %></p>
-              <%= link_to 'Reservar lugar', @preferences["sandbox_init_point"], target: '_blank', class: 'inline-flex items-center px-6 py-2 border truncate border-transparent text-sm leading-4 font-medium rounded-full shadow-sm text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500'%>
-          </span>
+
+          <%- if show_reservation(current_user, @event) %>
+            <span class="flex justify-start md:justify-end items-center pt-3 md:pt-0">
+              <p class="text-blue-500 text-lg font-medium pr-12">Ya haz adquirido este evento</p>
+            </span>
+          <% else %>
+            <span class="flex justify-start md:justify-end items-center pt-3 md:pt-0">
+                <p class="text-blue-500 text-lg font-medium pr-4">$<%= @event.price %></p>
+                <%= link_to 'Reservar lugar', @preferences["sandbox_init_point"], target: '_blank', class: 'inline-flex items-center px-6 py-2 border truncate border-transparent text-sm leading-4 font-medium rounded-full shadow-sm text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500'%>
+            </span>
+          <% end %>
       </div>
   </div>
 </div>

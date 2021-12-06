@@ -37,6 +37,7 @@
                 <%= link_to('Perfil', user_path(id: current_user.id))%>
                 <%= link_to('Creador', creator_path(id: current_user.creator.id))%>
                 <%= link_to('Crear Evento', new_event_path())%>
+                <%= link_to('Mis eventos adquiridos', proveloper_events_path()) %>
               <% else %>
                 <%= link_to('Iniciar sesión', login_path)%>
               <% end %>

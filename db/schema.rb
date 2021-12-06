@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_16_184736) do
+ActiveRecord::Schema.define(version: 2021_12_05_222739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 2021_11_16_184736) do
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
+  create_table "purchases", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.float "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_purchases_on_event_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
+  end
+
   create_table "studies", force: :cascade do |t|
     t.string "title"
     t.string "institution"
@@ -75,5 +85,7 @@ ActiveRecord::Schema.define(version: 2021_11_16_184736) do
   add_foreign_key "creators", "users"
   add_foreign_key "events", "creators"
   add_foreign_key "jobs", "users"
+  add_foreign_key "purchases", "events"
+  add_foreign_key "purchases", "users"
   add_foreign_key "studies", "users"
 end

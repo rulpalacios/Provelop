@@ -23,4 +23,6 @@
 #
 class Event < ApplicationRecord
   belongs_to :creator
+  has_many :purchases
+  has_many :users, through: :purhases
 end
