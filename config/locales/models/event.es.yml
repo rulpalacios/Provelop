@@ -1,0 +1,8 @@
+es:
+  activerecord:
+    models:
+      event: Evento
+    attributes:
+      event:
+        name: Nombre del curso
+        description: Descripción del curso
