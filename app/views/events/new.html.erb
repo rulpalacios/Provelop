@@ -1,11 +1,11 @@
 <div class="sticky top-16"> <!-- Comienza header -->
   <div class="pl-8 pr-4 md:px-14 pt-4 pb-4 bg-gray-100">
     <div class="md:flex pt-0 md:justify-between md:items-center">
-      <a href="" class="hover:bg-gray-200 rounded-full p-2 hover:text-blue-800 text-blue-600 ">
+      <%= link_to :back, class: 'hover:bg-gray-200 rounded-full p-2 hover:text-blue-800 text-blue-600' do %>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
-      </a>
+      <% end %>
     </div>
   </div>
 </div>
