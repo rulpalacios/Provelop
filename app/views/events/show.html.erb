@@ -84,10 +84,10 @@
                 Aprendizajes esperados
               </dt>
               <dd class="mt-1 text-md text-gray-600 sm:mt-0 sm:col-span-2">
-                &bull; Mercadotecnia digital
-                <br>&bull; Metodologías de desarrollo
-                <br>&bull; Patrones de diseño
-                <br>&bull; Administración de proyectos
+                <%- @event.expected_learnings.each do |expected| %>
+                  &bull; <%= expected.learning %>
+                  <br>
+                <% end %>
               </dd>
             </div>
             <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b border-gray-200">

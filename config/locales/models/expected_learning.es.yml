@@ -1,0 +1,7 @@
+es:
+  activerecord:
+    models:
+      expected_learning: Aprendizaje esperado
+    attributes:
+      expected_learning:
+        learning: Aprendizaje esperado

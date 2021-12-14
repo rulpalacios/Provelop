@@ -30,6 +30,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+
     if @event.update(event_params)
       redirect_to event_path(@event), notice: 'Evento actualizado correctamente'
     else
@@ -40,6 +41,9 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :price, :learn, :requirements, :oriented, :modality, :event_type, :specialization)
+    params.require(:event).permit(
+      :name, :description, :price, :learn, :requirements, :oriented, :modality, :event_type, :specialization,
+      expected_learnings_attributes: %i[_destroy id learning]
+    )
   end
 end
