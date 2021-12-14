@@ -1,0 +1,7 @@
+es:
+  activerecord:
+    models:
+      learning_module: Módulo de aprendizaje
+    attributes:
+      learning_module:
+        name: Nombre del módulo

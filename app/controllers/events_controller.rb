@@ -45,6 +45,7 @@ class EventsController < ApplicationController
       :name, :description, :price, :learn, :requirements, :modality, :event_type, :specialization, oriented: [],
       expected_learnings_attributes: %i[_destroy id learning],
       requirements_attributes: %i[_destroy id requirement],
+      learning_modules_attributes: %i[_destroy id name],
     )
   end
 end
