@@ -8,6 +8,7 @@
 #  learn          :string
 #  modality       :string
 #  name           :string
+#  oriented       :string           default([]), is an Array
 #  price          :float
 #  requirements   :string
 #  specialization :string
@@ -18,6 +19,7 @@
 # Indexes
 #
 #  index_events_on_creator_id  (creator_id)
+#  index_events_on_oriented    (oriented) USING gin
 #
 # Foreign Keys
 #
