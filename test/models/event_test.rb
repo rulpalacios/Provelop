@@ -8,7 +8,6 @@
 #  learn          :string
 #  modality       :string
 #  name           :string
-#  oriented       :string
 #  price          :float
 #  requirements   :string
 #  specialization :string

@@ -231,103 +231,17 @@
                   <fieldset>
                     <legend class="text-base font-medium text-gray-900"></legend>
                     <div class="mt-2 space-y-4">
-                      <div class="flex items-start">
-                        <div class="h-5 flex items-center">
-                          <input id="comments" name="comments" type="checkbox"
-                            class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                        </div>
-                        <div class="ml-3 text-sm">
-                          <label for="comments" class="font-medium text-gray-500">Público en general</label>
-                        </div>
-                      </div>
-                      <div>
+                      <%= form.label(:oriented, class: 'block text-sm  font-medium text-gray-700')%>
+                      <%- ['Público en general', 'Emprendedores', 'Profesionales independientes', 'Directivos', 'Gerentes', 'Comerciantes', 'Creativos', 'Ingenieros', 'Administrativos'].each do | oriented |%>
                         <div class="flex items-start">
                           <div class="h-5 flex items-center">
-                            <input id="candidates" name="candidates" type="checkbox"
-                              class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                            <%= check_box_tag("event[oriented][]", oriented, @event.oriented.include?(oriented), id: "oriented_#{oriented}", class: 'focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded')%>
                           </div>
                           <div class="ml-3 text-sm">
-                            <label for="candidates" class="font-medium text-gray-500">Emprendedores</label>
+                            <label for="#{oriented}" class="font-medium text-gray-500"><%= oriented %></label>
                           </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="flex items-start">
-                          <div class="h-5 flex items-center">
-                            <input id="offers" name="offers" type="checkbox"
-                              class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                          </div>
-                          <div class="ml-3 text-sm">
-                            <label for="offers" class="font-medium text-gray-500">Profesionales independientes</label>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="flex items-start">
-                          <div class="h-5 flex items-center">
-                            <input id="offers" name="offers" type="checkbox"
-                              class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                          </div>
-                          <div class="ml-3 text-sm">
-                            <label for="offers" class="font-medium text-gray-500">Directivos</label>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="flex items-start">
-                          <div class="h-5 flex items-center">
-                            <input id="offers" name="offers" type="checkbox"
-                              class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                          </div>
-                          <div class="ml-3 text-sm">
-                            <label for="offers" class="font-medium text-gray-500">Gerentes</label>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="flex items-start">
-                          <div class="h-5 flex items-center">
-                            <input id="offers" name="offers" type="checkbox"
-                              class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                          </div>
-                          <div class="ml-3 text-sm">
-                            <label for="offers" class="font-medium text-gray-500">Comerciantes</label>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="flex items-start">
-                          <div class="h-5 flex items-center">
-                            <input id="offers" name="offers" type="checkbox"
-                              class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                          </div>
-                          <div class="ml-3 text-sm">
-                            <label for="offers" class="font-medium text-gray-500">Creativos </label>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="flex items-start">
-                          <div class="h-5 flex items-center">
-                            <input id="offers" name="offers" type="checkbox"
-                              class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                          </div>
-                          <div class="ml-3 text-sm">
-                            <label for="offers" class="font-medium text-gray-500">Ingenieros</label>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="flex items-start">
-                          <div class="h-5 flex items-center">
-                            <input id="offers" name="offers" type="checkbox"
-                              class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                          </div>
-                          <div class="ml-3 text-sm">
-                            <label for="offers" class="font-medium text-gray-500">Administrativos</label>
-                          </div>
-                        </div>
-                      </div>
+                        </div>  
+                      <% end %>
                     </div>
                   </fieldset>
                 </div>
