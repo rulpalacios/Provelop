@@ -6,3 +6,6 @@ es:
       event:
         name: Nombre del curso
         description: Descripción del curso
+        modality: Modalidad
+        event_type: Tipo de formación
+        specialization: Área de especialización

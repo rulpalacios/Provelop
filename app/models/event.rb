@@ -2,16 +2,19 @@
 #
 # Table name: events
 #
-#  id           :bigint           not null, primary key
-#  description  :string
-#  learn        :string
-#  name         :string
-#  oriented     :string
-#  price        :float
-#  requirements :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  creator_id   :bigint           not null
+#  id             :bigint           not null, primary key
+#  description    :string
+#  event_type     :string
+#  learn          :string
+#  modality       :string
+#  name           :string
+#  oriented       :string
+#  price          :float
+#  requirements   :string
+#  specialization :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  creator_id     :bigint           not null
 #
 # Indexes
 #

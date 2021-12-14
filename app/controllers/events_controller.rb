@@ -24,9 +24,22 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      redirect_to event_path(@event), notice: 'Evento actualizado correctamente'
+    else
+      render :edit, alert: 'Ocurrio algun inconveniente al editar el evento'
+    end
+  end
+
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :price, :learn, :requirements, :oriented)
+    params.require(:event).permit(:name, :description, :price, :learn, :requirements, :oriented, :modality, :event_type, :specialization)
   end
 end
