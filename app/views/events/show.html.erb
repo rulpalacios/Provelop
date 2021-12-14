@@ -95,9 +95,10 @@
                 Requisitos
               </dt>
               <dd class="mt-1 text-md text-gray-600 sm:mt-0 sm:col-span-2">
-                &bull; Conocimiento básico de Facebook
-                <br>&bull; Conocimiento básico de mercadotecnia
-                <br>&bull; Bases de manejo de plataformas
+                <%- @event.requirements.each do |requirement| %>
+                    &bull; <%= requirement.requirement %>
+                    <br>
+                <% end %>
               </dd>
             </div>
             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b border-gray-200">

@@ -1,0 +1,7 @@
+es:
+  activerecord:
+    models:
+      requirement: Requisitos
+    attributes:
+      requirement: 
+        requirement: Requisitos
