@@ -137,12 +137,12 @@
                   <%= index %>. <%= learning_module.name %>
                 </dt>
                 <dd class="mt-1 text-md text-gray-600 sm:mt-0 sm:col-span-2">
-                  <p>
-                    &bull; Estructura de las competencias
-                  </p>
-                  <p>
-                    &bull; Competencia y aprendizajes esperados
-                  </p>
+
+                  <%- learning_module.module_contents.each do |module_content| %>
+                    <p>
+                      &bull; <%= module_content.content %>
+                    </p>
+                  <% end %>
                 </dd>
               </div>
             </dl>
