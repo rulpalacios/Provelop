@@ -203,15 +203,10 @@
     <div class="text-gray-400 text-xs uppercase font-semibold tracking-wide pt-5">
       fechas
     </div>
-    <p class="text-md text-gray-600 font-medium mt-2">Marzo 29
-      <span class="text-sm text-gray-500">- 1pm a 3pm</span>
-    </p>
-    <p class="text-md text-gray-600 font-medium mt-1">Marzo 30
-      <span class="text-sm text-gray-500">- 1pm a 3pm</span>
-    </p>
-    <p class="text-md text-gray-600 font-medium mt-1">Abril 06
-      <span class="text-sm text-gray-500">- 4pm a 6pm</span>
-    </p>
+
+    <%- @event.sessions.each do |session| %>
+      <p class="text-sm text-gray-500"><%= session.date %></p>
+    <% end %>
 
     <hr class="mt-6">
     <div class="text-gray-400 text-xs uppercase font-semibold tracking-wide pt-5">

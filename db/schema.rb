@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_20_002046) do
+ActiveRecord::Schema.define(version: 2021_12_20_020354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,6 +122,14 @@ ActiveRecord::Schema.define(version: 2021_12_20_002046) do
     t.index ["event_id"], name: "index_requirements_on_event_id"
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.string "date"
+    t.bigint "event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_sessions_on_event_id"
+  end
+
   create_table "studies", force: :cascade do |t|
     t.string "title"
     t.string "institution"
@@ -157,5 +165,6 @@ ActiveRecord::Schema.define(version: 2021_12_20_002046) do
   add_foreign_key "purchases", "events"
   add_foreign_key "purchases", "users"
   add_foreign_key "requirements", "events"
+  add_foreign_key "sessions", "events"
   add_foreign_key "studies", "users"
 end
