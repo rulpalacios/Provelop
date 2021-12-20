@@ -32,7 +32,7 @@ class Event < ApplicationRecord
   has_many :expected_learnings, dependent: :destroy
   has_many :learning_modules, dependent: :destroy
 
-  has_many :purchases
+  has_many :purchases, dependent: :destroy
   has_many :users, through: :purhases
 
   has_many :requirements, dependent: :destroy

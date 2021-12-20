@@ -2,6 +2,7 @@ class PaymentPreferences < ApplicationService
   require 'mercadopago'
 
   def initialize(event, current_user)
+    super
     @event = event
     @current_user = current_user
   end

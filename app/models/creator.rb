@@ -18,6 +18,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Creator < ApplicationRecord
-  has_many :events
+  has_many :events, dependent: :destroy
   belongs_to :user
 end

@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_one :creator, dependent: :destroy
   has_many :studies, dependent: :destroy
   has_many :jobs, dependent: :destroy
-  has_many :purchases
+  has_many :purchases, dependent: :destroy
   has_many :events, through: :purhases
   accepts_nested_attributes_for :studies, allow_destroy: true, reject_if: proc { |attr| attr['title'].blank? }
   accepts_nested_attributes_for :jobs, allow_destroy: true, reject_if: proc { |attr| attr['title'].blank? }
