@@ -17,7 +17,7 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user" do
     assert_difference('User.count') do
-      post admin_users_url, params: { user: {  } }
+      post admin_users_url, params: { user: {} }
     end
 
     assert_redirected_to user_url(User.last)
@@ -34,7 +34,7 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user" do
-    patch admin_user_url(@user), params: { user: {  } }
+    patch admin_user_url(@user), params: { user: {} }
     assert_redirected_to user_url(@user)
   end
 

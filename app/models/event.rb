@@ -31,7 +31,7 @@ class Event < ApplicationRecord
   belongs_to :creator
   has_many :expected_learnings, dependent: :destroy
   has_many :learning_modules, dependent: :destroy
-  
+
   has_many :purchases
   has_many :users, through: :purhases
 
