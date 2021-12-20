@@ -34,8 +34,11 @@
 
   <div class="col-span-1 md:col-span-2">
     <!-- Inicia Columna izquierda -->
-
-    <%= image_pack_tag('media/images/cover_scrum_event.jpg', class: 'h-60 md:h-96 w-full object object-cover px-8 md:pl-14 md:pr-0') %>
+    <%- if @event.image.attached? %>
+      <%= image_tag(@event.image, class: 'h-60 md:h-96 w-full object object-cover px-8 md:pl-14 md:pr-0') %>
+    <% else %>
+      <%= image_pack_tag('media/images/cover_scrum_event.jpg', class: 'h-60 md:h-96 w-full object object-cover px-8 md:pl-14 md:pr-0') %>
+    <% end %>
 
     <div class="border border-gray-200 rounded-b-md h-16 mx-8 md:ml-14 md:mr-0 flex justify-end">
       <button type="button"

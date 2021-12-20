@@ -14,8 +14,12 @@
         <div class="flex justify-between">
           <div class="flex">
             <div class="h-24 w-24 sm:mb-0 mb-3 flex-shrink-0">
-              <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80" alt="aji"
-                class=" w-24 h-24 object-cover rounded-2xl">
+              <%- if event.image.attached? %>
+                <%= image_tag(event.image, class: 'w-24 h-24 object-cover rounded-2xl') %>
+              <% else %>
+                <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80" alt="aji"
+                  class="w-24 h-24 object-cover rounded-2xl">
+              <% end %>
             </div>
             <div class="pl-5">
               <span

@@ -26,6 +26,8 @@
 #  fk_rails_...  (creator_id => creators.id)
 #
 class Event < ApplicationRecord
+  has_one_attached :image
+
   belongs_to :creator
   has_many :expected_learnings, dependent: :destroy
   has_many :requirements, dependent: :destroy
