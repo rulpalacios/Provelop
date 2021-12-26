@@ -2,20 +2,17 @@
 #
 # Table name: requirements
 #
-#  id          :bigint           not null, primary key
+#  id          :integer          not null, primary key
+#  event_id    :integer          not null
 #  requirement :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  event_id    :bigint           not null
 #
 # Indexes
 #
 #  index_requirements_on_event_id  (event_id)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (event_id => events.id)
-#
+
 require "test_helper"
 
 class RequirementTest < ActiveSupport::TestCase

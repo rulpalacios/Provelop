@@ -2,18 +2,19 @@
 #
 # Table name: users
 #
-#  id                  :bigint           not null, primary key
-#  about               :string
-#  country             :string
+#  id                  :integer          not null, primary key
 #  email               :string
-#  name                :string
 #  password_digest     :string
-#  role                :integer          default("student")
-#  specialization      :string
-#  years_of_experience :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  about               :string
+#  country             :string
+#  name                :string
+#  role                :integer          default("0")
+#  specialization      :string
+#  years_of_experience :integer
 #
+
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase

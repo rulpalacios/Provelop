@@ -2,29 +2,26 @@
 #
 # Table name: events
 #
-#  id             :bigint           not null, primary key
-#  description    :string
-#  event_type     :string
-#  learn          :string
-#  modality       :string
+#  id             :integer          not null, primary key
 #  name           :string
-#  oriented       :string           default([]), is an Array
+#  description    :string
 #  price          :float
+#  learn          :string
 #  requirements   :string
-#  specialization :string
+#  creator_id     :integer          not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  creator_id     :bigint           not null
+#  modality       :string
+#  event_type     :string
+#  specialization :string
+#  oriented       :string           default("{}"), is an Array
 #
 # Indexes
 #
 #  index_events_on_creator_id  (creator_id)
-#  index_events_on_oriented    (oriented) USING gin
+#  index_events_on_oriented    (oriented)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (creator_id => creators.id)
-#
+
 class Event < ApplicationRecord
   has_one_attached :image
 

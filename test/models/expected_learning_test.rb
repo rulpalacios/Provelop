@@ -2,20 +2,17 @@
 #
 # Table name: expected_learnings
 #
-#  id         :bigint           not null, primary key
+#  id         :integer          not null, primary key
 #  learning   :string
+#  event_id   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  event_id   :bigint           not null
 #
 # Indexes
 #
 #  index_expected_learnings_on_event_id  (event_id)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (event_id => events.id)
-#
+
 require "test_helper"
 
 class ExpectedLearningTest < ActiveSupport::TestCase
