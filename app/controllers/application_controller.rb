@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :signed_in?
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   def authenticate!
     return if signed_in?
 
@@ -22,5 +24,9 @@ class ApplicationController < ActionController::Base
 
   def warden
     request.env['warden']
+  end
+
+  def user_not_authorized
+    redirect_to :root, alert: 'Parece que no estas autorizado para esa acción'    
   end
 end

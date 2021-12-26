@@ -271,11 +271,9 @@
         </div>
         <div class="ml-3">
           <p class="text-md font-medium text-gray-700 group-hover:text-gray-900">
-            Tec de Monterrey
+            <%= @event.creator.name %>
           </p>
-          <p class="text-xs font-medium text-gray-500 group-hover:text-gray-700">
-            Ver perfil
-          </p>
+          <%= link_to 'Ver perfil', creator_path(@event.creator), class: 'text-xs font-medium text-gray-500 group-hover:text-gray-700' %>
         </div>
       </div>
     </a>

@@ -26,10 +26,13 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    authorize @event
   end
 
   def update
     @event = Event.find(params[:id])
+    
+    authorize @event
 
     if @event.update(event_params)
       redirect_to event_path(@event), notice: 'Evento actualizado correctamente'
