@@ -27,6 +27,6 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_authorized
-    redirect_to :root, alert: 'Parece que no estas autorizado para esa acción'    
+    redirect_to :root, alert: 'Parece que no estas autorizado para esa acción'
   end
 end

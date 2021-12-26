@@ -38,6 +38,8 @@ class PaymentPreferences < ApplicationService
   end
 
   def response
+    return {} unless current_user
+
     @response ||= sdk.preference.create(result_preferences)
   end
 end

@@ -7,7 +7,7 @@ class EventPolicy < ApplicationPolicy
 
   def new?
     return false unless user
-    
+
     user.proveloper?
   end
 

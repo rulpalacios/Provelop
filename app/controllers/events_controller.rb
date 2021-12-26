@@ -31,7 +31,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    
+
     authorize @event
 
     if @event.update(event_params)
