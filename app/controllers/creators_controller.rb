@@ -20,6 +20,6 @@ class CreatorsController < ApplicationController
   private
 
   def creator_params
-    params.require(:creator).permit(:name, :about)
+    params.require(:creator).permit(:avatar, :name, :about)
   end
 end

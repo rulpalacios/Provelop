@@ -17,4 +17,6 @@
 class Creator < ApplicationRecord
   has_many :events, dependent: :destroy
   belongs_to :user
+
+  has_one_attached :avatar
 end

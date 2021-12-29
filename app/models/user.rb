@@ -25,6 +25,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :jobs, allow_destroy: true, reject_if: proc { |attr| attr['title'].blank? }
 
   has_secure_password
+  has_one_attached :avatar
 
   enum role: %i[student proveloper creator].freeze
 

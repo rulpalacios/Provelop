@@ -38,7 +38,11 @@
                   <%= link_to nil, data: { action: 'profile#openMenu' }, class: 'max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500', id:"user-menu-button", aria_expanded:"false", aria_haspopup: "true" do %>
                     <span class="sr-only">Open user menu</span>
                     <client-only data-action="profile#openMenu">
-                      <%= image_pack_tag('media/images/icons/default_avatar.svg', class: 'object object-cover h-8 w-8 rounded-full') %>
+                      <% if current_user.avatar.attached? %>
+                        <%= image_tag(current_user.avatar, class: 'object object-cover h-8 w-8 rounded-full') %>
+                      <% else %>
+                        <%= image_pack_tag('media/images/icons/default_avatar.svg', class: 'object object-cover h-8 w-8 rounded-full') %>
+                      <% end %>
                     </client-only>
                   <% end %>
                 <% else %>

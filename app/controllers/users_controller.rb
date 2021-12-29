@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :name, :about, :country, :email, :password, :password_confirmation, :role, :specialization, :years_of_experience,
+      :avatar, :name, :about, :country, :email, :password, :password_confirmation, :role, :specialization, :years_of_experience,
       jobs_attributes: %i[_destroy id title organization dates description],
       studies_attributes: %i[_destroy id title institution dates description]
     )

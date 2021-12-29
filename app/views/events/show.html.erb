@@ -273,8 +273,11 @@
     <a href="#" class="flex-shrink-0 group block mt-2">
       <div class="flex items-center">
         <div>
-          <img class="inline-block h-9 w-9 rounded-full"
-            src="/Users/alex/Documents/Alex2020/Curso_TailWind/web_tailwind/icons/tec_icon.png" alt="">
+        <% if @event.creator.avatar.attached? %>
+            <%= image_tag(@event.creator.avatar, class: 'inline-block h-9 w-9 rounded-full') %>
+          <% else %>
+            <img class="inline-block h-9 w-9 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80" alt="">
+          <% end %>
         </div>
         <div class="ml-3">
           <p class="text-md font-medium text-gray-700 group-hover:text-gray-900">
