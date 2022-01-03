@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
@@ -21,7 +20,7 @@
             <div class="flex-shrink-0 flex items-center">
               <button></button>
               <button>
-                <%= image_pack_tag('media/images/branding/logo_provelop.svg', class: 'hidden lg:block h-8 w-auto') %>
+                <%= image_tag('branding/logo_provelop.svg', class: 'hidden lg:block h-8 w-auto') %>
               </button>
             </div>
             <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
@@ -41,7 +40,7 @@
                       <% if current_user.avatar.attached? %>
                         <%= image_tag(current_user.avatar, class: 'object object-cover h-8 w-8 rounded-full') %>
                       <% else %>
-                        <%= image_pack_tag('media/images/icons/default_avatar.svg', class: 'object object-cover h-8 w-8 rounded-full') %>
+                        <%= image_tag('icons/default_avatar.svg', class: 'object object-cover h-8 w-8 rounded-full') %>
                       <% end %>
                     </client-only>
                   <% end %>

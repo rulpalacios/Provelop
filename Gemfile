@@ -7,16 +7,20 @@ ruby '3.0.2'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'cssbundling-rails'
 gem 'google-cloud-storage', '~> 1.35'
 gem 'jbuilder', '~> 2.11'
+gem 'jsbundling-rails'
 gem 'mercadopago-sdk', '~> 2.0', '>= 2.0.2'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'pundit', '~> 2.1', '>= 2.1.1'
 gem 'rails', '~> 7.0.0'
+gem 'sprockets-rails'
+gem 'stimulus-rails'
 gem 'turbolinks', '~> 5'
+gem 'turbo-rails'
 gem 'warden', '~> 1.2', '>= 1.2.9'
-gem 'webpacker', '~> 5.0'
 
 group :development, :test do
   gem 'dotenv-rails'
