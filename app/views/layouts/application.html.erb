@@ -68,7 +68,7 @@
                     <%= link_to('Creador', creator_path(id: current_user.creator.id), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-2', tabindex: '-1')%>
                     <%= link_to('Crear Evento', new_event_path(), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-4', tabindex: '-1')%>
                   <% end %>
-                  <%= link_to('Cerrar sesión', sign_out_path(), method: :delete, class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-3', tabindex: '-1')%>
+                  <%= link_to('Cerrar sesión', sign_out_path(), class: 'block px-4 py-2 text-sm text-gray-700', method: :delete, role: 'menuitem', id: 'user-menu-item-3', tabindex: '-1', data: { turbo_method: :delete })%>
                 </div>
               <% end %>
             </div>

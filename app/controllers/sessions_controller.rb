@@ -7,8 +7,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    warden.authenticate!
-    redirect_to root_path, notice: "Bienvenido #{current_user.email}!"
+    authenticated = warden.authenticate!
+    
+    if authenticated
+      redirect_to root_path, notice: "Bienvenido #{current_user.email}!"
+    else
+      render :new
+    end
   end
 
   def destroy
