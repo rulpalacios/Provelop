@@ -4,10 +4,11 @@
 
 import { application } from "./application"
 
-import ProfileController from "./profile_controller"
-import AlertController from "./alert_controller"
-import NestedFormController from "./nested_form_controller"
-
-application.register("profile", ProfileController)
+import AlertController from "./alert_controller.js"
 application.register("alert", AlertController)
-application.register("nested_form", NestedFormController)
+
+import NestedFormController from "./nested_form_controller.js"
+application.register("nested-form", NestedFormController)
+
+import ProfileController from "./profile_controller.js"
+application.register("profile", ProfileController)
