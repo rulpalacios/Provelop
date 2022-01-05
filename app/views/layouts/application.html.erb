@@ -60,7 +60,7 @@
                     To: "transform opacity-0 scale-95"
                 -->
               <% if signed_in? %>
-                <div data-profile-target="container" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button">
+                <div data-profile-target="container" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button">
                   <!-- Active: "bg-gray-100", Not Active: "" -->
                   <%= link_to('Perfil', user_path(id: current_user.id), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-1', tabindex: '-1')%>
                   <%= link_to('Mis eventos adquiridos', proveloper_events_path(), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-5', tabindex: '-1') %>
@@ -141,6 +141,9 @@
         </div>
       </div>
     <% end %>
-    <%= yield %>
+
+    <div class="z-0">
+      <%= yield %>
+    </div>
   </body>
 </html>
