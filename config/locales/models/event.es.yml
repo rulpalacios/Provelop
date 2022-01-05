@@ -5,6 +5,7 @@ es:
     attributes:
       event:
         name: Nombre del curso
+        price: Precio
         description: Descripción del curso
         modality: Modalidad
         event_type: Tipo de formación
