@@ -2,7 +2,7 @@
 
 Rails.application.config.middleware.use Warden::Manager do |manager|
   manager.default_strategies :password
-  manager.failure_app = ->(env) { HomeController.action(:index).call(env) }
+  manager.failure_app = ->(env) { SessionsController.action(:new).call(env) }
 end
 
 Warden::Manager.serialize_into_session(&:id)
@@ -19,9 +19,9 @@ Warden::Strategies.add(:password) do
   def authenticate!
     user = User.find_by(email: params["email"])
     if user&.authenticate(params["password"])
-      success! user
+      success!(user)
     else
-      fail "Invalid email or password"
+      fail 'Invalid email or password'
     end
   end
 end

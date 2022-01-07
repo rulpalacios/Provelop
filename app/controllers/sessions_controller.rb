@@ -3,17 +3,12 @@ class SessionsController < ApplicationController
   layout 'auth'
 
   def new
-    flash.now.alert = warden.message if warden.message.present?
+    flash.now.alert = warden_options[:message] if warden_options
   end
 
   def create
-    authenticated = warden.authenticate!
-    
-    if authenticated
-      redirect_to root_path, notice: "Bienvenido #{current_user.email}!"
-    else
-      render :new
-    end
+    warden.authenticate!
+    redirect_to root_path, notice: "Bienvenido #{current_user.email}!"
   end
 
   def destroy

@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
     request.env['warden']
   end
 
+  def warden_options
+    request.env['warden.options']
+  end
+
   def user_not_authorized
     redirect_to :root, alert: 'Parece que no estas autorizado para esa acción'
   end
