@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root to: 'home#index'
+  get '/nosotros', to: 'us#show', as: 'us'
+  get '/proveloper', to: 'proveloper#show'
 
   scope constraints: ->(r) { r.env["warden"].user.nil? } do
     get :signup, to: "users#new", as: :signup
