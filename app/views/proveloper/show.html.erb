@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<div class="h-auto px-6 lg:px-14 py-20 mt-10 bg-no-repeat bg-center" style="background-image: url('img/circles.png')">
+<div class="h-auto px-6 lg:px-14 py-20 mt-10 bg-no-repeat bg-center" style="background-image: url('/assets/circles.png')">
   <div class="mt-12 lg:mt-20">
     <h1 class="text-gray-800 text-center font-extrabold text-3xl md:text-5xl">
       +30 Millones </h1>
@@ -151,7 +151,9 @@
     </div>
   </div>
   <div class="flex justify-center p-3 pb-24">
-    <%= link_to 'Comienza ahora', signup_path, class: 'inline-flex items-center px-12 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500' %>
+    <% unless signed_in? %>
+      <%= link_to 'Comienza ahora', signup_path, class: 'inline-flex items-center px-12 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500' %>
+    <% end %>
   </div>
 </div>
 
