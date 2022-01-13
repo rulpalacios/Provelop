@@ -7,6 +7,10 @@
 # Ignore .DS_STORE
 .DS_Store
 .env
+
+# Ignore storage config
+/config/storage.yml
+
 # Ignore test coverage
 /coverage
 
