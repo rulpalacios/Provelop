@@ -9,8 +9,7 @@
 .env
 
 # Ignore storage config
-/config/storage.yml
-
+config/storage.yml
 # Ignore test coverage
 /coverage
 
