@@ -13,13 +13,15 @@
   <body>
 
   <div class="h-auto bg-white sticky top-0">
-    <nav data-controller="profile" class="bg-white border-b border-gray-200">
+    <nav data-controller="display display-mobile" class="bg-white border-b border-gray-200">
       <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex">
             <div class="flex-shrink-0 flex items-center">
-              <button></button>
-              <button>
+              <button class="block lg:hidden h-8 w-auto">
+                <%= image_tag('branding/logo_provelop.svg', class: 'block lg:hidden h-8 w-auto') %>
+              </button>
+              <button class="hidden lg:block h-8 w-auto">
                 <%= image_tag('branding/logo_provelop.svg', class: 'hidden lg:block h-8 w-auto') %>
               </button>
             </div>
@@ -35,9 +37,9 @@
             <div class="ml-3 relative">
               <div class="flex justify-between">
                 <% if signed_in? %>
-                  <%= link_to nil, data: { action: 'profile#openMenu' }, class: 'max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500', id:"user-menu-button", aria_expanded:"false", aria_haspopup: "true" do %>
+                  <%= link_to nil, data: { action: 'display#openMenu' }, class: 'max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500', id:"user-menu-button", aria_expanded:"false", aria_haspopup: "true" do %>
                     <span class="sr-only">Open user menu</span>
-                    <client-only data-action="profile#openMenu">
+                    <client-only data-action="display#openMenu">
                       <% if current_user.avatar.attached? %>
                         <%= image_tag(current_user.avatar, class: 'object object-cover h-8 w-8 rounded-full') %>
                       <% else %>
@@ -63,7 +65,7 @@
                     To: "transform opacity-0 scale-95"
                 -->
               <% if signed_in? %>
-                <div data-profile-target="container" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button">
+                <div data-display-target="container" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button">
                   <!-- Active: "bg-gray-100", Not Active: "" -->
                   <%= link_to('Perfil', user_path(id: current_user.id), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-1', tabindex: '-1')%>
                   <%= link_to('Mis eventos adquiridos', proveloper_events_path(), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-5', tabindex: '-1') %>
@@ -76,7 +78,54 @@
               <% end %>
             </div>
           </div>
+
+          <div class="-mr-2 flex items-center sm:hidden" data-controller="display">
+            <%= link_to nil, data: { action: 'display-mobile#toggle' }, class: 'bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500', aria_controls: 'mobile-menu', aria_expanded:'false'  do %>
+              <span class="sr-only">Open main menu</span>
+              <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            <% end %>
+          </div>
         </div>
+      </div>
+
+      <div data-display-mobile-target="container" class="sm:hidden" id="mobile-menu">
+        <div class="pt-2 pb-3 space-y-1">
+          <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" -->
+          <%= link_to('Inicio', root_path(), class: 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium', data: { 'controller': 'active-nav-link', 'active-nav-link-target': 'link', 'active-nav-link-current-value': current_path(), 'active-nav-link-path-value': root_path() })%>
+          <%= link_to('Provelopers', proveloper_path(), class: 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium', data: { 'controller': 'active-nav-link', 'active-nav-link-target': 'link', 'active-nav-link-current-value': current_path(), 'active-nav-link-path-value': proveloper_path() })%>
+          <%= link_to('Nosotros', us_path(), class: 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium', data: { 'controller': 'active-nav-link', 'active-nav-link-target': 'link', 'active-nav-link-current-value': current_path(), 'active-nav-link-path-value': us_path() })%>
+        </div>
+        <% if signed_in? %>
+          <div class="pt-4 pb-3 border-t border-gray-200">
+            <div class="flex items-center px-4">
+              <div class="flex-shrink-0">
+                <% if current_user.avatar.attached? %>
+                  <%= image_tag(current_user.avatar, class: 'h-10 w-10 rounded-full') %>
+                <% else %>
+                  <%= image_tag('icons/default_avatar.svg', class: 'h-10 w-10 rounded-full') %>
+                <% end %>
+              </div>
+              <div class="ml-3">
+                <div class="text-base font-medium text-gray-800"><%= current_user.name %></div>
+                <div class="text-sm font-medium text-gray-500"><%= current_user.email %></div>
+              </div>
+            </div>
+            <div class="mt-3 space-y-1">
+              <%= link_to('Perfil', user_path(id: current_user.id), class: 'block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100')%>
+              <%= link_to('Mis eventos adquiridos', proveloper_events_path(), class: 'block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100') %>
+              <% if policy(Event).new? %>
+                <%= link_to('Creador', creator_path(id: current_user.creator.id), class: 'block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100')%>
+                <%= link_to('Crear Evento', new_event_path(), class: 'block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100')%>
+              <% end %>
+              <%= link_to('Cerrar sesión', sign_out_path(), class: 'block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100', data: { turbo_method: :delete })%>
+            </div>
+          </div>
+        <% end %>
       </div>
     </nav>
   </div>

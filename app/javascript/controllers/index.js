@@ -4,11 +4,17 @@
 
 import { application } from "./application"
 
+import ActiveNavLinkController from "./active_nav_link_controller.js"
+application.register("active-nav-link", ActiveNavLinkController)
+
 import AlertController from "./alert_controller.js"
 application.register("alert", AlertController)
 
+import DisplayController from "./display_controller.js"
+application.register("display", DisplayController)
+
+import DisplayMobileController from "./display_mobile_controller.js"
+application.register("display-mobile", DisplayMobileController)
+
 import NestedFormController from "./nested_form_controller.js"
 application.register("nested-form", NestedFormController)
-
-import ProfileController from "./profile_controller.js"
-application.register("profile", ProfileController)

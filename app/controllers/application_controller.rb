@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include Pundit
 
   helper_method :current_user
+  helper_method :current_path
   helper_method :signed_in?
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -28,6 +29,10 @@ class ApplicationController < ActionController::Base
 
   def warden_options
     request.env['warden.options']
+  end
+
+  def current_path
+    request.path
   end
 
   def user_not_authorized
