@@ -133,7 +133,7 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     faraday-retry (1.0.3)
-    ffi (1.15.4)
+    ffi (1.15.5)
     flipper (0.23.0)
     flipper-active_record (0.23.0)
       activerecord (>= 4.2, < 8)
@@ -194,7 +194,7 @@ GEM
       railties (>= 6.0.0)
     json (2.6.1)
     jwt (2.3.0)
-    listen (3.7.0)
+    listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.13.0)
@@ -420,7 +420,7 @@ DEPENDENCIES
   google-cloud-storage (~> 1.36)
   jbuilder (~> 2.11)
   jsbundling-rails
-  listen (~> 3.3)
+  listen (~> 3.7)
   mercadopago-sdk (~> 2.1)
   minitest
   minitest-stub_any_instance
