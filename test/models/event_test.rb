@@ -25,7 +25,13 @@
 require "test_helper"
 
 class EventTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  fixtures :events
+
+  def event
+    @event ||= events(:rails_course)
+  end
+
+  def test_valid_event
+    assert event.valid?
+  end
 end

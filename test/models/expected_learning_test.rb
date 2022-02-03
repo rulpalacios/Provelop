@@ -16,7 +16,13 @@
 require "test_helper"
 
 class ExpectedLearningTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  fixtures :expected_learnings
+
+  def expected_learning
+    @expected_learning ||= expected_learnings(:mvc_pattern)
+  end
+
+  def test_valid_expected_learning
+    assert expected_learning.valid?
+  end
 end

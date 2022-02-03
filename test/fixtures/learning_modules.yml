@@ -1,22 +1,3 @@
-# == Schema Information
-#
-# Table name: learning_modules
-#
-#  id         :integer          not null, primary key
-#  name       :string
-#  event_id   :integer          not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-# Indexes
-#
-#  index_learning_modules_on_event_id  (event_id)
-#
-
-one:
-  name: MyString
-  event: one
-
-two:
-  name: MyString
-  event: two
+auth_module:
+  name: 'Rail auth with devise'
+  event: rails_course

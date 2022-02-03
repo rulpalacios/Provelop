@@ -16,7 +16,13 @@
 require "test_helper"
 
 class LearningModuleTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  fixtures :learning_modules
+
+  def learning_module
+    @learning_module ||= learning_modules(:auth_module)
+  end
+
+  def test_valid_learning_module
+    assert learning_module.valid?
+  end
 end

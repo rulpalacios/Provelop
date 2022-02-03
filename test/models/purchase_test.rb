@@ -18,7 +18,13 @@
 require "test_helper"
 
 class PurchaseTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  fixtures :purchases
+
+  def purchase
+    @purchase ||= purchases(:rails_course_purchase)
+  end
+
+  def test_valid_purchase
+    assert purchase.valid?
+  end
 end

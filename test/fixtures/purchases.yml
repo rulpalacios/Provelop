@@ -1,26 +1,4 @@
-# == Schema Information
-#
-# Table name: purchases
-#
-#  id         :integer          not null, primary key
-#  user_id    :integer          not null
-#  event_id   :integer          not null
-#  price      :float
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-# Indexes
-#
-#  index_purchases_on_event_id  (event_id)
-#  index_purchases_on_user_id   (user_id)
-#
-
-one:
-  user: one
-  event: one
-  price: 1.5
-
-two:
-  user: two
-  event: two
-  price: 1.5
+rails_course_purchase:
+  user: joe
+  event: rails_course
+  price: 200

@@ -1,31 +1,6 @@
-# == Schema Information
-#
-# Table name: jobs
-#
-#  id           :integer          not null, primary key
-#  title        :string
-#  organization :string
-#  dates        :string
-#  description  :string
-#  user_id      :integer          not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#
-# Indexes
-#
-#  index_jobs_on_user_id  (user_id)
-#
-
-one:
-  job_title: MyString
-  organization: MyString
-  dates: MyString
-  description: MyString
-  user: one
-
-two:
-  job_title: MyString
-  organization: MyString
-  dates: MyString
-  description: MyString
-  user: two
+software_engineer:
+  title: 'Software Engineer'
+  organization: 'Basecamp'
+  dates: '1999 - 2022'
+  description: 'Software Engineer'
+  user: joe

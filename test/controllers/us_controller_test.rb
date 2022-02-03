@@ -2,9 +2,9 @@
 
 require 'test_helper'
 
-class EventsControllerTest < ActionDispatch::IntegrationTest
+class UsControllerTest < ActionDispatch::IntegrationTest
   def test_show_successful_response
-    get event_path(id: 1)
+    get us_path
     assert_response :success
   end
 end

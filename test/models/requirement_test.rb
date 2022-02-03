@@ -16,7 +16,13 @@
 require "test_helper"
 
 class RequirementTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  fixtures :requirements
+
+  def requirement
+    @requirement ||= requirements(:ruby_lang)
+  end
+
+  def test_valid_requirement
+    assert requirement.valid?
+  end
 end

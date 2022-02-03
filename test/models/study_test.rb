@@ -19,7 +19,13 @@
 require "test_helper"
 
 class StudyTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  fixtures :studies
+
+  def study
+    @study ||= studies(:one)
+  end
+
+  def test_valid_study
+    assert study.valid?
+  end
 end

@@ -1,41 +1,11 @@
-# == Schema Information
-#
-# Table name: events
-#
-#  id             :integer          not null, primary key
-#  name           :string
-#  description    :string
-#  price          :float
-#  learn          :string
-#  requirements   :string
-#  creator_id     :integer          not null
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  modality       :string
-#  event_type     :string
-#  specialization :string
-#  oriented       :string           default("{}"), is an Array
-#
-# Indexes
-#
-#  index_events_on_creator_id  (creator_id)
-#  index_events_on_oriented    (oriented)
-#
-
-one:
-  name: MyString
-  description: MyString
-  price: 1.5
-  learn: MyString
-  requirements: MyString
-  oriented: MyString
-  creator: one
-
-two:
-  name: MyString
-  description: MyString
-  price: 1.5
-  learn: MyString
-  requirements: MyString
-  oriented: MyString
-  creator: two
+rails_course:
+  name: 'Rails course'
+  description: '0 to expert in rails'
+  price: 200
+  learn: 'Rails basics'
+  requirements: 'Ruby language'
+  modality: 'online'
+  event_type: 'programming'
+  specialization: 'development'
+  oriented: ['programming', 'development']
+  creator: playground

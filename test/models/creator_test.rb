@@ -17,7 +17,13 @@
 require "test_helper"
 
 class CreatorTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  fixtures :creators
+
+  def creator
+    @creator ||= creators(:playground)
+  end
+
+  def test_valid_creator
+    assert creator.valid?
+  end
 end

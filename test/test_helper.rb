@@ -5,11 +5,12 @@ require_relative '../config/environment'
 require 'rails/test_help'
 require 'simplecov'
 SimpleCov.start 'rails' do
+  add_group 'Services', 'app/services'
+  add_group 'Policies', 'app/policies'
   add_filter 'vendor'
 end
 
 require 'minitest/autorun'
-require 'factory_bot_rails'
 require 'capybara'
 
 Shoulda::Matchers.configure do |config|

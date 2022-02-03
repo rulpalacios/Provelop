@@ -2,14 +2,8 @@
 
 Rails.application.routes.draw do
   # TODO: Order routes
-
-  namespace :admin do
-    resources :users
-  end
-  
   root to: 'home#index'
 
-  
   get '/nosotros', to: 'us#show', as: 'us'
   get '/proveloper', to: 'proveloper#show'
   

@@ -19,7 +19,13 @@
 require "test_helper"
 
 class JobTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  fixtures :jobs
+
+  def job
+    @job ||= jobs(:software_engineer)
+  end
+
+  def test_valid_job
+    assert job.valid?
+  end
 end
