@@ -26,7 +26,6 @@
 joe:
   name: 'Joe'
   email: 'joe@example.com'
-  password_digest: 'joe123456'
   about: 'Software developer'
   country: 'United States'
   role: 'proveloper'
