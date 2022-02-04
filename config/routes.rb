@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
   delete :sign_out, to: "sessions#destroy", as: :sign_out
 
+  resources :contacts, only: :create
   resources :events
   resources :users
   resources :creators
@@ -29,6 +30,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: :index
   end
-
+  
   mount Flipper::UI.app(Flipper) => '/flipper'
 end
