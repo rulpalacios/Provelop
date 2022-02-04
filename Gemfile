@@ -8,6 +8,7 @@ ruby '3.0.2'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'cssbundling-rails'
+gem 'devise'
 gem 'flipper'
 gem 'flipper-active_record'
 gem 'flipper-ui'
@@ -23,7 +24,6 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbolinks', '~> 5'
 gem 'turbo-rails'
-gem 'warden', '~> 1.2', '>= 1.2.9'
 
 group :development, :test do
   gem 'dotenv-rails'

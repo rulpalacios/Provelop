@@ -56,25 +56,29 @@
         <div class="mt-6">
         
 
-        <%= form_with(model: @user, class: 'space-y-6') do |form| %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
           <div>
             <%= form.label :email, class: "block text-sm font-medium text-gray-700" %>
             <div class="mt-1">
-              <%= form.text_field :email, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+              <%= form.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
             </div>
           </div>
 
           <div class="space-y-1">
             <%= form.label :password, class: "block text-sm font-medium text-gray-700" %>
              <div class="mt-1">
-              <%= form.password_field :password, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+             <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+              <%= form.password_field :password, autocomplete: "new-password", class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
             </div>
           </div>
 
           <div class="space-y-1">
             <%= form.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
              <div class="mt-1">
-              <%= form.password_field :password_confirmation, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+              <%= form.password_field :password_confirmation, autocomplete: "new-password", class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
             </div>
           </div>
           <div>

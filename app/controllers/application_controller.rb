@@ -2,34 +2,10 @@
 
 class ApplicationController < ActionController::Base
   include Pundit
-
-  helper_method :current_user
+  
   helper_method :current_path
-  helper_method :signed_in?
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
-  def authenticate!
-    return if signed_in?
-
-    head :unauthorized
-  end
-
-  def current_user
-    warden.user
-  end
-
-  def signed_in?
-    warden.authenticated?
-  end
-
-  def warden
-    request.env['warden']
-  end
-
-  def warden_options
-    request.env['warden.options']
-  end
 
   def current_path
     request.path

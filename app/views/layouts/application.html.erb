@@ -49,7 +49,7 @@
                   <% end %>
                 <% else %>
                   <% if FeatureFlags.auth_enabled? %>
-                    <%= link_to('Iniciar sesión', login_path, class: 'block px-4 py-2 text-sm text-blue-700', role: 'menuitem', tabindex: '-1', id: 'user-menu-item-1')%>
+                    <%= link_to('Iniciar sesión', new_user_session_path, class: 'block px-4 py-2 text-sm text-blue-700', role: 'menuitem', tabindex: '-1', id: 'user-menu-item-1')%>
                   <% end %>
                 <% end %>
               </div>
@@ -73,7 +73,17 @@
                     <%= link_to('Creador', creator_path(id: current_user.creator.id), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-2', tabindex: '-1')%>
                     <%= link_to('Crear Evento', new_event_path(), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-4', tabindex: '-1')%>
                   <% end %>
-                  <%= link_to('Cerrar sesión', sign_out_path(), class: 'block px-4 py-2 text-sm text-gray-700', method: :delete, role: 'menuitem', id: 'user-menu-item-3', tabindex: '-1', data: { turbo_method: :delete })%>
+                  <%= button_to(
+                    "Cerrar sesión",
+                    destroy_user_session_path,
+                    method: :delete,
+                    class: 'block px-4 py-2 text-sm text-gray-700',
+                    role: 'menuitem', 
+                    id: 'user-menu-item-3', 
+                    tabindex: '-1', 
+                    data: { turbo_method: :delete }
+                  ) %>
+                  
                 </div>
               <% end %>
             </div>
@@ -122,7 +132,13 @@
                 <%= link_to('Creador', creator_path(id: current_user.creator.id), class: 'block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100')%>
                 <%= link_to('Crear Evento', new_event_path(), class: 'block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100')%>
               <% end %>
-              <%= link_to('Cerrar sesión', sign_out_path(), class: 'block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100', data: { turbo_method: :delete })%>
+              <%= button_to(
+                "Cerrar sesión",
+                destroy_user_session_path,
+                method: :delete,
+                class: 'block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100', 
+                data: { turbo_method: :delete }
+              ) %>
             </div>
           </div>
         <% end %>
