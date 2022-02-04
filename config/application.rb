@@ -17,5 +17,10 @@ module Provelop
     config.i18n.default_locale = :es
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     config.i18n.available_locales = %i[es en]
+
+    config.to_prepare do
+      Devise::SessionsController.layout "auth"
+      Devise::RegistrationsController.layout "auth"
+    end
   end
 end
