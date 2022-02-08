@@ -9,8 +9,6 @@ module Mercadopago
         event_id: event.id
       )
       proveloper.save
-
-      redirect_to event_path(event), notice: 'Felicidades! haz adquirido este evento, ahora puedes encontrarlo en tus eventos.'
     end
   end
 end

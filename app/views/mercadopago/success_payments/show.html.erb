@@ -1,1 +1,37 @@
-<h1>Compra exitosa de <%= @event.name %> </h1>
+<div class="mt-36">
+  <div class="flex items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-900" fill="none" viewBox="0 0 24 24"
+      stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+    </svg>
+  </div>
+  <h1 class="
+      pt-4
+      text-blue-900
+      font-bold
+      text-4xl
+      flex
+      items-center
+      justify-center
+    ">
+    ¡Gracias!
+  </h1>
+  <div class="flex items-center justify-center">
+    <p class="
+        pt-4
+        text-lg
+        w-1/2
+        md:w-1/4
+        text-center
+        font-regular
+        text-gray-400
+      ">
+      Tu compra se ha registrado exitósamente y te hemos enviado un correo con
+      todos los datos de tu evento.
+    </p>
+  </div>
+  <div class="flex items-center justify-center pt-4">
+    <%= link_to 'Seguir exporando cursos', events_path, class: 'inline-flex mt-8 items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500' %>
+  </div>
+</div>
