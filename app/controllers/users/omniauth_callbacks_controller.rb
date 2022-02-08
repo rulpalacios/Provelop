@@ -8,23 +8,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def twitter
   # end
 
-  # More info at:
-  # https://github.com/heartcombo/devise#omniauth
+  def google_oauth2
+    result = AuthenticateWithGoogle.call(auth: request.env['omniauth.auth'])
 
-  # GET|POST /resource/auth/twitter
-  # def passthru
-  #   super
-  # end
-
-  # GET|POST /users/auth/twitter/callback
-  # def failure
-  #   super
-  # end
-
-  # protected
-
-  # The path used when OmniAuth fails
-  # def after_omniauth_failure_path_for(scope)
-  #   super(scope)
-  # end
+    if result.success?
+      flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
+      sign_in_and_redirect result.user, event: :authentication
+    else
+      redirect_to new_user_session_url
+    end
+  end
 end
