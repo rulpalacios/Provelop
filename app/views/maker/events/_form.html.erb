@@ -1,0 +1,272 @@
+<%= form_for(event, url: url) do |form|%>
+  <div class="mt-10 mx-6 md:mx-12 sm:mt-12 ">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-1 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Sobre la formación</h3>
+          <p class="mt-1 text-sm text-gray-600">
+            Información básica de la formación.
+          </p>
+        </div>
+      </div>
+      <div class="mt-5 md:mt-0 md:col-span-2">
+        
+        <div class="shadow overflow-hidden sm:rounded-md">
+          <div class="px-4 py-5 bg-white sm:p-6">
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-6">
+                <%= form.label(:name, class: 'block text-sm  font-medium text-gray-700') %>
+                <%= form.text_field(:name, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md') %>
+              </div>
+              <div class="col-span-6 sm:col-span-6">
+                <%= form.label(:price, class: 'block text-sm  font-medium text-gray-700') %>
+                <%= form.text_field(:price, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md') %>
+              </div>
+              <div class="col-span-6">
+                <%= form.label(:description, class: 'block text-sm font-medium text-gray-700') %>
+                <%= form.text_area(:description, rows: 3, class: 'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-3') %>
+                <p class="mt-2 text-sm text-gray-500">
+                  Cuéntanos un poco sobre este curso y sus objetivos.
+                </p>
+              </div>
+
+              <div class="col-span-6">
+                <label class="block text-sm font-medium text-gray-700">
+                  Foto de portada del evento
+                </label>
+                <div class="mt-1 flex items-center">
+                  <%= image_tag(@event.image, width: 200) if @event.image.attached? %>
+
+                  <%= form.file_field :image, class: 'ml-5 bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' %>                  
+                </div>
+              </div>
+
+              <div class="col-span-2">
+                <%= form.label(:modality, class: 'block text-sm  font-medium text-gray-700')%>
+                <%= form.select(:modality, options_for_select([['En línea'], ['Presencial'], ['Otro']], @event.modality), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
+              </div>
+
+              <div class="col-span-2">
+                <%= form.label(:event_type, class: 'block text-sm  font-medium text-gray-700')%>
+                <%= form.select(:event_type, options_for_select([['Taller'], ['Curso'], ['Webinar'],['Diplomado'], ['Conferencia'], ['Otro']], @event.event_type), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
+              </div>
+
+              <div class="col-span-2">
+                <%= form.label(:specialization, class: 'block text-sm  font-medium text-gray-700')%>
+                <%= form.select(:specialization, options_for_select([['Diseño'], ['Marketing Digital'], ['User Experience'],['Educación'], ['Mercadotecnia y Publicidad'], ['Otro']], @event.specialization), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
+              </div>
+
+
+              <div class="col-span-6 sm:col-span-3 lg:col-span-3" data-controller='nested-form'>
+                <div data-nested-form-target="add_item" class="flex justify-end">
+                  <%= link_to 'Agregar fecha', nil, data: {action: 'nested-form#add_association'} ,class: 'mt-5 ml-3 flex-shrink-0 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800' %>
+                </div>
+
+                <template data-nested-form-target='template'>
+                  <%= form.fields_for :sessions, Session.new, child_index: 'TEMPLATE_RECORD' do |sessions|%>
+                    <%= render 'session_fields', form: sessions %>
+                  <% end %>
+                </template>
+
+                <%= form.fields_for :sessions do |session|%>
+                  <%= render 'session_fields', form: session %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class=" sm:block" aria-hidden="true">
+    <div class="py-10 mx-8 md:mx-12">
+      <div class="border-t border-gray-200"></div>
+    </div>
+  </div>
+
+  <div class="mt-2 sm:mt-10 sm:mt-0 mx-6 md:mx-12">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-1 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Competencia y aprendizajes esperados</h3>
+          <p class="mt-1 text-sm text-gray-600">
+            Competencia y aprendizajes esperados de la formación
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-5 md:mt-0 md:col-span-2">
+        <div class="mt-2 md:mt-2 md:col-span-2">
+          <div class="shadow overflow-hidden sm:rounded-md">
+            <div class="px-4 py-5 bg-white sm:p-6">
+              <div class="grid grid-cols-6 gap-6">
+
+                <div class="col-span-6 sm:col-span-6">
+                  <label for="name" class="block text-sm  font-medium text-gray-700">
+                    Competencia
+                  </label>
+                  <input type="text" name="name" id="name" autocomplete="name"
+                    class="mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md">
+                </div>
+                <div class="col-span-6 sm:col-span-6 lg:col-span-6" data-controller='nested-form'>
+                  <div data-nested-form-target="add_item" class="flex justify-end">
+                    <%= link_to '#', data: {action: 'nested-form#add_association'} ,class: 'inline-flex items-center px-3 py-2 border border-transparent tracking-wide  text-sm leading-4 font-semibold rounded-full text-blue-800  hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700' do %>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Agregar aprendizaje esperado
+                    <% end %>
+                  </div>
+                  <template data-nested-form-target='template'>
+                    <%= form.fields_for :expected_learnings, ExpectedLearning.new, child_index: 'TEMPLATE_RECORD' do |learning|%>
+                      <%= render 'learning_fields', form: learning %>
+                    <% end %>
+                  </template>
+
+                  <%= form.fields_for :expected_learnings do |learning|%>
+                    <%= render 'learning_fields', form: learning %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sm:block" aria-hidden="true">
+    <div class="py-10 mx-8 md:mx-12">
+      <div class="border-t border-gray-200"></div>
+    </div>
+  </div>
+
+  <div class="mt-2 sm:mt-10 sm:mt-0 mx-6 md:mx-12">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-1 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Información adicional</h3>
+          <p class="mt-1 text-sm text-gray-600">
+            Información adicional sobre la formación
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-5 md:mt-0 md:col-span-2">
+
+        <div class="mt-2 md:mt-2 md:col-span-2">
+          <div class="shadow overflow-hidden sm:rounded-md">
+            <div class="px-4 py-5 bg-white sm:p-6">
+              <div class="grid grid-cols-6 gap-6">
+
+                <div class="col-span-6 sm:col-span-6 lg:col-span-6" data-controller='nested-form'>
+                  <div data-nested-form-target="add_item" class="flex justify-end">
+                    <%= link_to '#', data: {action: 'nested-form#add_association'} ,class: 'inline-flex items-center px-3 py-2 border border-transparent tracking-wide  text-sm leading-4 font-semibold rounded-full text-blue-800  hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700' do %>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Agregar Requisitos
+                    <% end %>
+                  </div>
+                  <template data-nested-form-target='template'>
+                    <%= form.fields_for :requirements, Requirement.new, child_index: 'TEMPLATE_RECORD' do |requirement|%>
+                      <%= render 'requirement_fields', form: requirement %>
+                    <% end %>
+                  </template>
+
+                  <%= form.fields_for :requirements do |requirement|%>
+                    <%= render 'requirement_fields', form: requirement %>
+                  <% end %>
+                </div>
+
+                <div class="col-span-6 sm:col-span-6 lg:col-span-6 mt-4">
+                  <label for="cooking_time" class="block text-sm font-medium text-gray-700">Para quien es esta
+                    formación</label>
+                </div>
+
+                <div class="mt-1 md:mt-1 md:col-span-3">
+                  <fieldset>
+                    <legend class="text-base font-medium text-gray-900"></legend>
+                    <div class="mt-2 space-y-4">
+                      
+                      <%- ['Público en general', 'Emprendedores', 'Profesionales independientes', 'Directivos', 'Gerentes', 'Comerciantes', 'Creativos', 'Ingenieros', 'Administrativos'].each do | oriented |%>
+                        <div class="flex items-start">
+                          <div class="h-5 flex items-center">
+                            <%= check_box_tag("event[oriented][]", oriented, @event.oriented.include?(oriented), id: "oriented_#{oriented}", class: 'focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded')%>
+                          </div>
+                          <div class="ml-3 text-sm">
+                            <label for="#{oriented}" class="font-medium text-gray-500"><%= oriented %></label>
+                          </div>
+                        </div>  
+                      <% end %>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sm:block" aria-hidden="true">
+    <div class="py-10 mx-8 md:mx-12">
+      <div class="border-t border-gray-200"></div>
+    </div>
+  </div>
+
+  <div class="mt-2 sm:mt-10 sm:mt-12 mx-6 md:mx-12">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-1 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Módulos y contenidos</h3>
+          <p class="mt-1 text-sm text-gray-600">
+            Módulos de aprendizaje y contenidos de cada módulo
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-5 md:mt-0 md:col-span-2" data-controller='nested-form'>
+        <div data-nested-form-target="add_item" class="flex justify-end">
+          <%= link_to '#', data: {action: 'nested-form#add_association'} ,class: 'inline-flex items-center px-3 py-2 border border-transparent tracking-wide  text-sm leading-4 font-semibold rounded-full text-blue-800  hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700' do %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Agregar Módulo
+          <% end %>
+        </div>
+        <template data-nested-form-target='template'>
+          <%= form.fields_for :learning_modules, LearningModule.new, child_index: 'TEMPLATE_RECORD' do |learning_module|%>
+            <%= render 'learning_modules_fields', form: learning_module %>
+          <% end %>
+        </template>
+
+        <%= form.fields_for :learning_modules do |learning_module|%>
+          <%= render 'learning_modules_fields', form: learning_module %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="sm:block" aria-hidden="true">
+    <div class="py-10 mx-8 md:mx-12">
+      <div class="border-t border-gray-200"></div>
+    </div>
+  </div>
+
+  <div class="mt-1 sm:pt-4 flex justify-end pb-12 mx-6 sm:mx-12">
+    <button type="button" class="bg-white py-2 px-12 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-blue-gray-900 hover:bg-blue-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
+      Cancelar
+    </button>
+
+    <%= form.submit 'Guardar', class: 'ml-3 inline-flex justify-center py-2 px-12 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500' %>
+  </div>
+<% end %>

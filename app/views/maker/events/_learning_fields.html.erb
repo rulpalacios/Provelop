@@ -1,0 +1,15 @@
+<div class='nested-fields mt-3'>
+  <div class="col-span-6 sm:col-span-6 lg:col-span-6">
+    <%= form.hidden_field :_destroy %>
+    <%= form.label(:learning, class: 'block text-sm font-medium text-gray-700')%>
+    <div class="flex justify-start">
+      <%= form.text_field(:learning, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full  sm:text-sm border border-gray-300 h-9 rounded-md') %>
+      <%= link_to '#', data: { action: 'click->nested-form#remove_association' }, class: 'text-gray-400 hover:text-red-600 hover:bg-gray-100 rounded-full p-1 flex items-center justify-center block ml-3' do %>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+        </svg>
+        Eliminar
+      <% end %>
+    </div>
+  </div>
+</div>

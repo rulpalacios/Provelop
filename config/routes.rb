@@ -16,6 +16,14 @@ Rails.application.routes.draw do
   resources :users
   resources :creators
 
+  namespace :maker do
+    resources :events do
+      resource :reviews, only: :show
+      resource :publications, only: :show
+      resource :returns, only: :show
+    end
+  end
+
   namespace :mercadopago do
     resources :success_payments, only: :show
   end
@@ -26,6 +34,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: :index
+    resources :events, only: :index
   end
   
   mount Flipper::UI.app(Flipper) => '/flipper'

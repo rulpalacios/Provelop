@@ -15,6 +15,7 @@
 #  event_type     :string
 #  specialization :string
 #  oriented       :string           default("{}"), is an Array
+#  status         :string
 #
 # Indexes
 #

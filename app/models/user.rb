@@ -39,7 +39,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  enum role: %i[student proveloper creator].freeze
+  enum role: %i[student proveloper creator admin].freeze
 
   validates :email, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
