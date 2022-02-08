@@ -72,7 +72,6 @@
                   <% if policy(Event).new? %>
                     <%= link_to('Creador', creator_path(id: current_user.creator.id), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-2', tabindex: '-1')%>
                     <%= link_to('Mis eventos', maker_events_path(), class: 'block px-4 py-2 text-sm text-gray-700')%>
-                    <%= link_to('Crear Evento', new_event_path(), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-4', tabindex: '-1')%>
                   <% end %>
                   <%= button_to(
                     "Cerrar sesión",
@@ -132,7 +131,6 @@
               <% if policy(Event).new? %>
                 <%= link_to('Creador', creator_path(id: current_user.creator.id), class: 'block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100')%>
                 <%= link_to('Mis eventos', maker_events_path(), class: 'block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100')%>
-                <%= link_to('Crear Evento', new_event_path(), class: 'block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100')%>
               <% end %>
               <%= button_to(
                 "Cerrar sesión",
