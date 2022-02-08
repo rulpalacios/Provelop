@@ -30,13 +30,12 @@
                 </div>
 
                 <div>
-                <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                    <span class="sr-only">Sign in with Google</span>
-                    
-                    <svg width="20" height="20"><g fill-rule="nonzero" fill="none"><circle fill="#6B7280" cx="9.639" cy="9.81" r="9.639"/>
-                        <path d="M4.221 9.817c-.104-2.69 2.3-5.176 5.049-5.208 1.4-.117 2.763.416 3.824 1.285-.435.468-.878.931-1.35 1.365-.934-.556-2.057-.979-3.148-.603-1.759.49-2.824 2.526-2.173 4.212.539 1.76 2.725 2.727 4.438 1.988.887-.312 1.472-1.114 1.73-1.975-1.018-.02-2.035-.008-3.051-.035-.003-.593-.006-1.184-.003-1.776 1.696-.003 3.394-.008 5.092.007.104 1.452-.114 3.007-1.078 4.172-1.32 1.664-3.757 2.152-5.74 1.5-2.105-.678-3.636-2.755-3.59-4.932z" fill="#FFF"/></g>
-                    </svg>
-                </a>
+                <%= link_to user_google_oauth2_omniauth_authorize_path,  method: :post, class: 'w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50' do %>
+                  <span class="sr-only">Sign in with Google</span>
+                  <svg width="20" height="20"><g fill-rule="nonzero" fill="none"><circle fill="#6B7280" cx="9.639" cy="9.81" r="9.639"/>
+                      <path d="M4.221 9.817c-.104-2.69 2.3-5.176 5.049-5.208 1.4-.117 2.763.416 3.824 1.285-.435.468-.878.931-1.35 1.365-.934-.556-2.057-.979-3.148-.603-1.759.49-2.824 2.526-2.173 4.212.539 1.76 2.725 2.727 4.438 1.988.887-.312 1.472-1.114 1.73-1.975-1.018-.02-2.035-.008-3.051-.035-.003-.593-.006-1.184-.003-1.776 1.696-.003 3.394-.008 5.092.007.104 1.452-.114 3.007-1.078 4.172-1.32 1.664-3.757 2.152-5.74 1.5-2.105-.678-3.636-2.755-3.59-4.932z" fill="#FFF"/></g>
+                  </svg>
+                <% end %>
                 </div>
             </div>
             </div>

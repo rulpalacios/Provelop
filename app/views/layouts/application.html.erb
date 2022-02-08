@@ -67,8 +67,13 @@
               <% if signed_in? %>
                 <div data-display-target="container" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button">
                   <!-- Active: "bg-gray-100", Not Active: "" -->
-                  <%= link_to('Perfil', user_path(id: current_user.id), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-1', tabindex: '-1')%>
-                  <%= link_to('Mis eventos adquiridos', proveloper_events_path(), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-5', tabindex: '-1') %>
+                  <% if current_user.admin? %>
+                    <%= link_to('Usuarios', admin_users_path, class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-2', tabindex: '-1')%>
+                    <%= link_to('Eventos', admin_events_path, class: 'block px-4 py-2 text-sm text-gray-700')%>
+                  <% else %>
+                    <%= link_to('Perfil', user_path(id: current_user.id), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-1', tabindex: '-1')%>
+                    <%= link_to('Mis eventos adquiridos', proveloper_events_path(), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-5', tabindex: '-1') %>
+                  <% end %>
                   <% if policy(Event).new? %>
                     <%= link_to('Creador', creator_path(id: current_user.creator.id), class: 'block px-4 py-2 text-sm text-gray-700', role: 'menuitem', id: 'user-menu-item-2', tabindex: '-1')%>
                     <%= link_to('Mis eventos', maker_events_path(), class: 'block px-4 py-2 text-sm text-gray-700')%>

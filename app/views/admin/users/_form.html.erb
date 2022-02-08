@@ -12,7 +12,7 @@
   <% end %>
   
   <%= form.label :role %>
-  <%= form.select :role, options_for_select([['student'], ['proveloper'], ['creator']], user.role), {:include_blank => "Elegir"} %>
+  <%= form.select :role, options_for_select([['student'], ['proveloper'], ['creator'], ['admin']], user.role), {:include_blank => "Elegir"} %>
   
 
   <div class="actions">
