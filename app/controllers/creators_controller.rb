@@ -5,11 +5,12 @@ class CreatorsController < ApplicationController
 
   def edit
     @creator = Creator.find(params[:id])
+    authorize @creator
   end
 
   def update
     @creator = Creator.find(params[:id])
-
+    authorize @creator
     if @creator.update(creator_params)
       redirect_to @creator, notice: 'Información actualizada correctamente'
     else
