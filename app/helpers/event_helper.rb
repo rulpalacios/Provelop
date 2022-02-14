@@ -35,7 +35,7 @@ module EventHelper
 
   def show_admin_links(event)
     draft_link(event)
-    return publish_link(event) 
+    publish_link(event)
   end
 
   def review_link(event)

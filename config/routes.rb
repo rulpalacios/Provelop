@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  
+
   # TODO: Order routes
   root to: 'home#index'
 
@@ -36,6 +36,6 @@ Rails.application.routes.draw do
     resources :users, only: %i[index edit update]
     resources :events, only: :index
   end
-  
+
   mount Flipper::UI.app(Flipper) => '/flipper'
 end

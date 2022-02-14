@@ -39,8 +39,8 @@ class AuthenticateWithGoogle
     # Should be safe cause url always come from Google
     image = URI.open(info.image) # rubocop:disable Security/Open
     user.avatar.attach(io: image,
-                                filename: "temp.#{image.content_type_parse.first.split('/').last}",
-                                content_type: image.content_type_parse.first)
+                       filename: "temp.#{image.content_type_parse.first.split('/').last}",
+                       content_type: image.content_type_parse.first)
   end
 
   def update_prorifle_info(user)

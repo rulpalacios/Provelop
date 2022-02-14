@@ -11,8 +11,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  private
-
   # def update_user_credentials(result)
   #   result.user.update(
   #     google_token: result.auth.credentials['token'],

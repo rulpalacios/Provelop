@@ -22,12 +22,12 @@ module Maker
       @event = Event.find(params[:id])
       authorize @event
     end
-  
+
     def update
       @event = Event.find(params[:id])
-  
+
       authorize @event
-  
+
       if @event.update(event_params)
         redirect_to maker_events_path, notice: 'Evento actualizado correctamente'
       else
