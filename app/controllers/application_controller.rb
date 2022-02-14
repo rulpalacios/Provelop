@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  skip_before_action :verify_authenticity_token
+  
   def current_path
     request.path
   end
