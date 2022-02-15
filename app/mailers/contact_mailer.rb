@@ -6,6 +6,6 @@ class ContactMailer < ApplicationMailer
     @name = params[:name]
     @message = params[:message]
     @url = 'http://example.com/login'
-    mail(to: @email, subject: 'Correo de contacto')
+    mail(to: 'raul@provelop.mx', subject: 'Correo de contacto')
   end
 end

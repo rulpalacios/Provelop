@@ -1,8 +1,8 @@
 ActionMailer::Base.smtp_settings = {
-  address: 'smtp.mandrilapp.com',
+  address: 'smtp.mandrillapp.com',
   port: 587,
   enable_starttls_auto: true,
-  user_name: 'contacto@provelop.mx',
+  user_name: 'Provelop',
   password: ENV['MANDRIL_API_KEY'],
   authentication: 'login'
 }
