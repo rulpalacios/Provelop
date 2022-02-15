@@ -15,5 +15,4 @@ class ContactMailer < MandrillMailer::TemplateMailer
       inline_css: true
      )
   end
-
 end
