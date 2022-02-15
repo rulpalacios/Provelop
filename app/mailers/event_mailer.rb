@@ -9,10 +9,21 @@ class EventMailer < MandrillMailer::TemplateMailer
       vars: {
         EVENT_NAME: event.name,
         EVENT_DESCRIPTION: event.description,
-        EVENT_DATES: event.sessions
+        EVENT_DATES: dates(event.sessions)
       },
       important: true,
       inline_css: true
      )
+  end
+
+  private
+
+  def dates(sessions)
+    dates = ''
+    sessions.map do |session|
+      dates << session.date
+    end
+
+    dates
   end
 end
