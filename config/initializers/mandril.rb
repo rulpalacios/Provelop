@@ -1,11 +1,13 @@
 ActionMailer::Base.smtp_settings = {
   address: 'smtp.mandrillapp.com',
   port: 587,
-  enable_starttls_auto: true,
-  user_name: 'Provelop',
-  password: ENV['MANDRIL_API_KEY'],
-  authentication: 'login'
+  user_name: ENV['MANDRILL_USERNAME'],
+  password: ENV['MANDRILL_API_KEY'],
+  domain: 'provelop.mx'
 }
-
 ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.default charset: 'utf-8'
+
+MandrillMailer.configure do |config|
+  config.api_key = ENV['MANDRILL_API_KEY']
+  config.deliver_later_queue_name = :default
+end

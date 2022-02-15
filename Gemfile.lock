@@ -113,6 +113,7 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.10.0)
+    excon (0.91.0)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
@@ -212,6 +213,14 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mandrill_mailer (1.8.0)
+      actionpack
+      activejob
+      activesupport
+      mandrillus (~> 2.0.0)
+    mandrillus (2.0.0)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 3.0)
     marcel (1.0.2)
     matrix (0.4.2)
     memoist (0.16.2)
@@ -457,6 +466,7 @@ DEPENDENCIES
   jbuilder (~> 2.11)
   jsbundling-rails
   listen (~> 3.7)
+  mandrill_mailer
   mercadopago-sdk (~> 2.1)
   minitest
   minitest-stub_any_instance
