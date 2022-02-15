@@ -18,7 +18,6 @@ module Mercadopago
         proveloper.email,
         event
       ).deliver_later
-
     end
   end
 end

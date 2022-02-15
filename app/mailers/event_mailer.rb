@@ -1,5 +1,5 @@
 class EventMailer < MandrillMailer::TemplateMailer
-  default from: 'raul@provelop.mx'
+  default from: 'hola@provelop.mx'
 
   def purchase_event(to_email, event)
     mandrill_mail(
@@ -21,7 +21,7 @@ class EventMailer < MandrillMailer::TemplateMailer
   def dates(sessions)
     dates = ''
     sessions.map do |session|
-      dates << session.date
+      dates << "\n - " << session[:date]
     end
 
     dates
