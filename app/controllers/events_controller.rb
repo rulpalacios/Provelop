@@ -45,7 +45,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(
-      :name, :description, :image, :price, :learn, :requirements, :modality, :event_type, :specialization, oriented: [],
+      :name, :description, :image, :price, :learn, :requirements, :modality, :event_type, :specialization, :oriented,
       sessions_attributes: %i[_destroy id date],
       expected_learnings_attributes: %i[_destroy id learning],
       requirements_attributes: %i[_destroy id requirement],
