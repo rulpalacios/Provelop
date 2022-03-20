@@ -48,9 +48,7 @@
                     </client-only>
                   <% end %>
                 <% else %>
-                  <% if FeatureFlags.auth_enabled? %>
-                    <%= link_to('Iniciar sesión', new_user_session_path, class: 'block px-4 py-2 text-sm text-blue-700', role: 'menuitem', tabindex: '-1', id: 'user-menu-item-1')%>
-                  <% end %>
+                  <%= link_to('Iniciar sesión', new_user_session_path, class: 'block px-4 py-2 text-sm text-blue-700', role: 'menuitem', tabindex: '-1', id: 'user-menu-item-1')%>
                 <% end %>
               </div>
 

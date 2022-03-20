@@ -138,7 +138,7 @@
     </div>
   </div>
   <div class="flex justify-center p-3 pb-24">
-    <% if FeatureFlags.auth_enabled? %>
+    <% unless signed_in? %>
       <%= link_to 'Comienza ahora', new_user_registration_path, class: 'inline-flex items-center px-12 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500' %>
     <% end %>
   </div>
