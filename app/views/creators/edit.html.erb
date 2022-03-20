@@ -2,12 +2,12 @@
   <!-- Comienza header -->
   <div class="pl-8 pr-4 md:px-14 pt-4 pb-4 bg-gray-100">
     <div class="md:flex pt-0 md:justify-between md:items-center">
-      <a href="">
+      <%= link_to creator_path(@creator) do %>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-800 hover:text-blue-600" fill="none"
           viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
-      </a>
+      <% end %>
     </div>
   </div>
 </div>
@@ -62,9 +62,7 @@
 
 
   <div class="mt-1 sm:pt-4 flex justify-end pb-12 mx-6 sm:mx-12">
-    <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-full shadow-sm text-sm font-medium text-blue-gray-900 hover:bg-blue-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
-      Cancelar
-    </button>
+    <%= link_to 'Cancelar', creator_path(@creator), class: 'bg-white py-2 px-4 border border-gray-300 rounded-full shadow-sm text-sm font-medium text-blue-gray-900 hover:bg-blue-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400'%>
     <%= form.submit('Guardar', class: 'ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')%>
   </div>
 <% end %>

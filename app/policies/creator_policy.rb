@@ -5,6 +5,10 @@ class CreatorPolicy < ApplicationPolicy
     end
   end
 
+  def update?
+    record == user.creator
+  end
+
   def edit?
     record == user.creator
   end

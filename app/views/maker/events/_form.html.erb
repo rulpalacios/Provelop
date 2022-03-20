@@ -34,6 +34,9 @@
                 <label class="block text-sm font-medium text-gray-700">
                   Foto de portada del evento
                 </label>
+                <p class="mt-2 text-sm text-gray-500">
+                  Sube archivo en formato .jpg o .png (recomendamos descargarla de unsplash.com)
+                </p>
                 <div class="mt-1 flex items-center">
                   <%= image_tag(@event.image, width: 200) if @event.image.attached? %>
 
@@ -43,17 +46,17 @@
 
               <div class="col-span-2">
                 <%= form.label(:modality, class: 'block text-sm  font-medium text-gray-700')%>
-                <%= form.select(:modality, options_for_select([['En línea'], ['Presencial'], ['Otro']], @event.modality), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
+                <%= form.select(:modality, options_for_select([['En línea'], ['Presencial'], ['Híbrida']], @event.modality), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
               </div>
 
               <div class="col-span-2">
                 <%= form.label(:event_type, class: 'block text-sm  font-medium text-gray-700')%>
-                <%= form.select(:event_type, options_for_select([['Taller'], ['Curso'], ['Webinar'],['Diplomado'], ['Conferencia'], ['Otro']], @event.event_type), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
+                <%= form.select(:event_type, options_for_select([['Taller'], ['Curso'], ['Conferencia'], ['Webinar']], @event.event_type), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
               </div>
 
               <div class="col-span-2">
                 <%= form.label(:specialization, class: 'block text-sm  font-medium text-gray-700')%>
-                <%= form.select(:specialization, options_for_select([['Diseño'], ['Marketing Digital'], ['User Experience'],['Educación'], ['Mercadotecnia y Publicidad'], ['Otro']], @event.specialization), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
+                <%= form.select(:specialization, options_for_select([['Marketing'], ['Negocios'], ['Software'],['Diseño y creatividad'], ['Desarrollo personal']], @event.specialization), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
               </div>
 
 
