@@ -188,27 +188,10 @@
                 </div>
 
                 <div class="col-span-6 sm:col-span-6 lg:col-span-6 mt-4">
-                  <label for="cooking_time" class="block text-sm font-medium text-gray-700">Para quien es esta
-                    formación</label>
-                </div>
-
-                <div class="mt-1 md:mt-1 md:col-span-3">
-                  <fieldset>
-                    <legend class="text-base font-medium text-gray-900"></legend>
-                    <div class="mt-2 space-y-4">
-                      
-                      <%- ['Público en general', 'Emprendedores', 'Profesionales independientes', 'Directivos', 'Gerentes', 'Comerciantes', 'Creativos', 'Ingenieros', 'Administrativos'].each do | oriented |%>
-                        <div class="flex items-start">
-                          <div class="h-5 flex items-center">
-                            <%= check_box_tag("event[oriented][]", oriented, @event.oriented.include?(oriented), id: "oriented_#{oriented}", class: 'focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded')%>
-                          </div>
-                          <div class="ml-3 text-sm">
-                            <label for="#{oriented}" class="font-medium text-gray-500"><%= oriented %></label>
-                          </div>
-                        </div>  
-                      <% end %>
-                    </div>
-                  </fieldset>
+                  <div class="col-span-6 sm:col-span-6">
+                    <%= form.label(:oriented, class: 'block text-sm  font-medium text-gray-700') %>
+                    <%= form.text_field(:oriented, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md') %>
+                  </div>
                 </div>
               </div>
             </div>

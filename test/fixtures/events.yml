@@ -14,13 +14,11 @@
 #  modality       :string
 #  event_type     :string
 #  specialization :string
-#  oriented       :string           default("{}"), is an Array
 #  status         :string
 #
 # Indexes
 #
 #  index_events_on_creator_id  (creator_id)
-#  index_events_on_oriented    (oriented)
 #
 
 rails_course:

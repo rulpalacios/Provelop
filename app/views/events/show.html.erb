@@ -133,10 +133,7 @@
                 Para quién es este evento
               </dt>
               <dd class="mt-1 text-md text-gray-600 sm:mt-0 sm:col-span-2">
-                <%- @event.oriented.each do |oriented| %>
-                    &bull; <%= oriented %>
-                    <br>
-                <% end %>
+                <%= @event.oriented %>
               </dd>
             </div>
 

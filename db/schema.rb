@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_08_045111) do
+ActiveRecord::Schema.define(version: 2022_03_20_060251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,10 +64,8 @@ ActiveRecord::Schema.define(version: 2022_02_08_045111) do
     t.string "modality"
     t.string "event_type"
     t.string "specialization"
-    t.string "oriented", default: [], array: true
     t.string "status"
     t.index ["creator_id"], name: "index_events_on_creator_id"
-    t.index ["oriented"], name: "index_events_on_oriented", using: :gin
   end
 
   create_table "expected_learnings", force: :cascade do |t|
