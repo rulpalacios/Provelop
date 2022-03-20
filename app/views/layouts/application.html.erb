@@ -18,12 +18,12 @@
         <div class="flex justify-between h-16">
           <div class="flex">
             <div class="flex-shrink-0 flex items-center">
-              <button class="block lg:hidden h-8 w-auto">
+              <%= link_to root_path, class: "block lg:hidden h-8 w-auto" do %>
                 <%= image_tag('branding/logo_provelop.svg', class: 'block lg:hidden h-8 w-auto') %>
-              </button>
-              <button class="hidden lg:block h-8 w-auto">
+              <% end %>
+              <%= link_to root_path, class: 'hidden lg:block h-8 w-auto' do %>
                 <%= image_tag('branding/logo_provelop.svg', class: 'hidden lg:block h-8 w-auto') %>
-              </button>
+              <% end %>
             </div>
             <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
               <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
