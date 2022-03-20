@@ -1,0 +1,10 @@
+es:
+  activerecord:
+    models:
+      study: Educación
+    attributes:
+      study:
+        title: Título
+        institution: Institución
+        dates: Fechas
+        description: Descripción

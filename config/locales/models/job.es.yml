@@ -1,0 +1,10 @@
+es:
+  activerecord:
+    models:
+      job: Experiencia
+    attributes:
+      job:
+        title: Puesto
+        organization: Organización
+        dates: Fechas
+        description: Descripción
