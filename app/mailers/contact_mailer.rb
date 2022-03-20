@@ -5,7 +5,7 @@ class ContactMailer < MandrillMailer::TemplateMailer
     mandrill_mail(
       template: 'contact',
       subject: 'Correo de contacto desde: provelop.mx',
-      to: 'raul@provelop.mx',
+      to: 'andres@provelop.mx',
       vars: {
         EMAIL: email,
         NAME: name,
