@@ -15,6 +15,7 @@
 #  event_type     :string
 #  specialization :string
 #  status         :string
+#  oriented       :string
 #
 # Indexes
 #
